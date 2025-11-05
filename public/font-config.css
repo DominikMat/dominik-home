@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Necto Mono';
+  
+  /* Ważne: ścieżka bezwzględna, która działa z /public */
+  src: url('/fonts/NectoMono-Regular.otf') format('opentype'); 
+  
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,734 @@
+
+
+export interface LinkInfo {
+    title: string;
+    url: string;
+    filePath: string;
+}
+export interface StatInfo {
+    label: string;
+    value: string;
+}
+
+export interface ImageData {
+    path: string,
+    aspect: number
+}
+
+export interface ProjectInfo {
+    title: string;
+    tag: string;
+    startDate: string;
+    endDate:string;
+    description: string;
+    image1: string;
+    image2: string;
+    images: string[];
+    details: string;
+    stats: StatInfo[];
+    links: LinkInfo[];
+}
+
+export const ProjectData: ProjectInfo[] = [
+    // portfolio
+    {
+    title: 'Home & Portfolio website',
+    tag: 'Website',
+    startDate: '2025',
+    endDate: '2025',
+    description: 'a website to nicley display all the amazing things Ive done',
+    image1: '/dominik-home/images/portfolio/main.png',
+    image2: '/dominik-home/images/portfolio/art-2.png',
+    images: [
+        '/dominik-home/images/portfolio/main.png',
+        '/dominik-home/images/portfolio/full.png',
+        '/dominik-home/images/portfolio/popup.png',
+        '/dominik-home/images/portfolio/art.png',
+        '/dominik-home/images/portfolio/art-2.png',
+        '/dominik-home/images/portfolio/work-cards.png',
+    ],
+    details: `
+        project cards with working popups for details,
+        supports images, embedded videos, yt videos and downloadable files.
+
+        work cards are lacklaster because I dont have much to fill it with.
+
+        art gallery is dynamically sized to a css grid, to fill out most space and preserve aspect ratios.
+
+        built with React.
+
+        then i made this site as well, built in react and typescript.
+    `,
+    stats: [
+    ],
+    links: [
+        {title: "Github Repository", url:'https://github.com/DominikMat/dominik-home.git', filePath:''},
+    ]
+    },
+    // rubiks
+    {
+    title: 'Rubiks Solver',
+    tag: 'Application',
+    startDate: '2025',
+    endDate: '2025',
+    description: 'an app to automatically solve Rubiks cubes, and show moves and animations',
+    image1: '/dominik-home/images/rubiks/app.png',
+    image2: '/dominik-home/images/rubiks/rubiks-logo.png',
+    images: [
+        '/dominik-home/images/rubiks/rubiks-logo.png',
+        '/dominik-home/images/rubiks/app.png',
+        '/dominik-home/images/rubiks/py-logo.png',
+        '/dominik-home/images/rubiks/image-creator.png',
+    ],
+    details: `
+        build with Python and OpenGL rendering,
+        uses Kociemba as well as our own implementation of LBL algorythm.
+        Supports solving to custom faces to make pictures.
+
+    `,
+    stats: [
+    ],
+    links: [
+        {title: "Github Repository", url:'https://github.com/filip-zolnierczyk/PythonCubeProject.git', filePath:''},
+    ]
+    },
+    // online shop
+    {
+    title: 'Prestissimo.com',
+    tag: 'Website',
+    startDate: '2024',
+    endDate: '2024',
+    description: 'a school project website, mock online shop',
+    image1: '/dominik-home/images/online_shop/produkty.png',
+    image2: '/dominik-home/images/online_shop/logo.png',
+    images: [
+        '/dominik-home/images/online_shop/logo.png',
+        '/dominik-home/images/online_shop/homepage.png',
+        '/dominik-home/images/online_shop/produkty.png',
+        '/dominik-home/images/online_shop/recenzje.png',
+        '/dominik-home/images/online_shop/logowanie.png',
+        '/dominik-home/images/online_shop/tech.png',
+    ],
+    details: `
+        a school project website, average online shopping experience
+
+        built in React.
+    `,
+    stats: [
+    ],
+    links: [
+        {title: "Github Repository", url:'https://github.com/AdrianSuliga/OnlineShop.git', filePath:''},
+    ]
+    },
+    // stargazing
+    {
+    title: 'Stargazing Website',
+    tag: 'Website',
+    startDate: '2024',
+    endDate: '2024',
+    description: 'a school project website, displays constallation with star info',
+    image1: '/dominik-home/images/stargaze-site/main_site-2.png',
+    image2: '/dominik-home/images/stargaze-site/main_site.png',
+    images: [
+        '/dominik-home/images/stargaze-site/main_site-2.png',
+        '/dominik-home/images/stargaze-site/main_site.png',
+        '/dominik-home/images/stargaze-site/gallery.png',
+        '/dominik-home/images/stargaze-site/contact-form.png',
+        '/dominik-home/images/stargaze-site/drawing.jpg',
+        '/dominik-home/images/stargaze-site/drawing-2.jpg',
+    ],
+    details: `
+        a school project website, displays constallation with star info
+
+        project had to include a gallery and a contact form.
+        built in pure HTML
+    `,
+    stats: [
+    ],
+    links: [
+        {title: "Github Repository (under projekt1)", url:'https://github.com/DominikMat/Apki-Internetowe.git', filePath:''},
+    ]
+    },
+    // evolution
+    {
+    title: 'Evolution Engine',
+    tag: 'Application',
+    startDate: '2024',
+    endDate: '2024',
+    description: 'a school project app, simulates grazing animals with genetic code',
+    image1: '/dominik-home/images/evolution/sim.png',
+    image2: '/dominik-home/images/evolution/evo-logo.png',
+    images: [
+        '/dominik-home/images/evolution/evo-logo.png',
+        '/dominik-home/images/evolution/sim.png',
+        '/dominik-home/images/evolution/params.png',
+    ],
+    details: `
+        a school project app, simulates grazing animals with genetic code.
+
+        built with Java.
+    `,
+    stats: [
+    ],
+    links: [
+        {title: "Github Repository", url:'https://github.com/tomaszmol/projekt_PO.git', filePath:''},
+    ]
+    },
+    // giraffean
+    {
+    title: 'The Giraffean Campaign',
+    tag: 'Computer Game',
+    startDate: '2022-03-29',
+    endDate: '2022-04-15',
+    description: 'canonballs versus giraffe',
+    image1: '/dominik-home/images/giraffe/giraffe  (1).png',
+    image2: '/dominik-home/images/giraffe/giraffe  (2).png',
+    images: [
+        '/dominik-home/images/giraffe/giraffe  (1).png',
+        '/dominik-home/images/giraffe/giraffe  (2).png',
+        '/dominik-home/images/giraffe/giraffe  (3).png',
+        '/dominik-home/images/giraffe/giraffe  (1).JPG',
+    ],
+    details: `
+        Progress:
+        day 1 - IK (3h)
+        day 2 - boat and shooting (2h)
+        day 3 - Water Interaction (2.5h)
+        day 4 - mental breakdown
+        day 5 - buoyancy system (3h)
+        day 6 - utter laziness
+        day 7 - empire ship, dialogue, timeline (3h)
+        day 8 - basic sound FX (1h)
+        day 9 - giraffe health, damage and defense systems (2.5h)
+        day 10 - basically nothing
+        day 11 - finished damage and limb severing system (2h)
+        day 12 - gameplay (3h)
+        day 13 - intro sequence (4h)
+        day 14 - bugs, background, boss outro sequence, more audio, retexturing (7h)
+        day 15 - pondering build bug (1h)
+        day 16 - fixed build bug, no more mobile,  music, credits sequence (3.5h)
+        day 17 - finished credits, ending touches (9h)
+    `,
+    stats: [
+        { label: 'Total Time spent', value: "17days, 46.5h, ~2.75h a day" },
+    ],
+    links: [
+        {title: "The Giraffen Campaign PC version", url:'https://drive.google.com/file/d/1h3rdz3KpPmPdXKzXBId05vOXWw41Er4M/view?usp=sharing', filePath:''},
+        {title: "Devlog Videos (YT Playlist)", url:'https://www.youtube.com/playlist?list=PLJX6VUSvLT5RVY-xhGaSjj7B042wMYZIM', filePath:''}
+    ]
+    },
+    // gong
+    {
+        title: 'Gong Alarm',
+        tag: 'Engineering',
+        startDate: '2022',
+        endDate: '2022',
+        description: 'a miniature and motorized chinese gong to wake me up',
+        image1: '/dominik-home/images/gong/DSC_0753.JPG',
+        image2: '/dominik-home/images/gong/DSC_0705.JPG',
+        images: [
+            '/dominik-home/images/gong/DSC_0705.JPG',
+            '/dominik-home/images/gong/DSC_0753.JPG',
+            '/dominik-home/images/gong/Gong Alarm (1).jpg',
+            '/dominik-home/images/gong/Gong Alarm (4).jpg',
+            '/dominik-home/images/gong/Gong Alarm (5).jpg',
+            '/dominik-home/images/gong/Gong Alarm (6).jpg',
+            'https://www.youtube.com/watch?v=zPBFU7ZbkVs',
+        ],
+        details: `
+        a miniature and motorized chinese gong to wake me up
+
+        I wanted to fall asleep watching youtube but be forced to get out
+        of bed to turn off the alarm to wake up, thus a gong was born.
+
+        Fitted with an OLED display, and internet connection (for clock updates),
+        when disabled in the morning it shows the weather for the day :)
+
+        One time we went on vacation and i left it on, it gonged for at least a couple 
+        hours when a family friend came over to turn it off.
+
+        it is VERY loud.
+
+        also the hammer is from a kalimba.
+        `,
+        stats: [],
+        links: []
+    },
+    // fluid sims
+    {
+    title: 'Fluid Simulations',
+    tag: 'Simulation',
+    startDate: '2021-12-10',
+    endDate: '2022-XX-XX',
+    description: 'fluid simulation, cell-based and SPH',
+    image1: '/dominik-home/images/fluid/fluid (5).png',
+    image2: '/dominik-home/images/fluid/fluid (9).png',
+    images: [
+        '/dominik-home/images/fluid/fluid (5).png',
+        '/dominik-home/images/fluid/fluid (6).png',
+        '/dominik-home/images/fluid/fluid (7).png',
+        '/dominik-home/images/fluid/fluid (8).png',
+        '/dominik-home/images/fluid/fluid (9).png',
+        '/dominik-home/images/fluid/fluid (10).png',
+        '/dominik-home/images/fluid/DSC_0237.JPG',
+        'https://youtu.be/8v7jRq7eyCQ',
+        'https://youtu.be/Ra7vjeXGca4',
+    ],
+    details: `
+    First I created a cell based simulation in Unity, but it was slow,
+    then i experimented with particle based simulation (SPH). I wrote a compute shader 
+    for the particle calculations, but still manages at most 4k particles.
+
+    After that I wanted to create something to use the simulation the idea was a fishing game.
+    I also implemented a fluid collision system, and a buoyancy algorythm.
+    `,
+    stats: [
+        {label: "Time spent", value: "~1 year on and off"}
+    ],
+    links: [
+        {title: "Fluid Engine Videos (YT Playlist)", url:'https://www.youtube.com/playlist?list=PLJX6VUSvLT5RnLE8cEcDfddoYloI3ZBgT', filePath:''},
+        {title: "SPH Fluid Videos (YT Playlist)", url:'https://www.youtube.com/playlist?list=PLJX6VUSvLT5RpJeCM139PUpdwGMB6E-0r', filePath:''},
+        {title: "SPH Fluid Simulation - HTML", url:'https://drive.google.com/file/d/1X7boNwWbTHN7smb6Bz7bNeCsBvWzxY0O/view?usp=sharing', filePath:''},
+    ]
+    },
+    // softbodies
+    {
+    title: 'Softbody Simulation',
+    tag: 'Simulation',
+    startDate: '2021-11-27',
+    endDate: '2021-11-27',
+    description: 'Simulation of squishy objects',
+    image1: '/dominik-home/images/soft/softbody-1.png',
+    image2: '/dominik-home/images/soft/softbody-2.png',
+    images: [
+        '/dominik-home/images/soft/softbody-1.png',
+        '/dominik-home/images/soft/softbody-2.png',
+        'https://youtu.be/jLjjc2Xi09k',
+        'https://youtu.be/Z3psJtYVMjo',
+        'https://youtu.be/1YUxuCOjEdw',
+    ],
+    details: `
+    Simulation of squishy objects
+
+    2 simulation built in SFML and HTML.
+    `,
+    stats: [
+    ],
+    links: [
+        {title: "Softbody Simulation SFML - PC", url:'https://drive.google.com/file/d/1JsPKmjE6ILm1fNppHuHoclQEhjUEIPkf/view?usp=sharing', filePath:''},
+        {title: "Softbody Simulation HTML - PC", url:'https://drive.google.com/file/d/1VMwr1ccoLVnojJbPXA4FvKxlqpe52lCn/view?usp=sharing', filePath:''},
+        {title: "Abstract Softness - Android", url:'https://drive.google.com/file/d/1P7MzJqBDNhVHBO0WR_cFF6cDa7FZYd-s/view?usp=sharing', filePath:''},
+    ]
+    },
+    // disquiet
+    {
+        title: 'Disquiet',
+        tag: 'Engineering',
+        startDate: '2022-05-14',
+        endDate: '2022-07-06',
+        description: 'a controllable led array to show constallations',
+        image1: '/dominik-home/images/disquiet/DSC_0572.JPG',
+        image2: '/dominik-home/images/disquiet/DSC_0578.JPG',
+        images: [
+            '/dominik-home/images/disquiet/DSC_0569.JPG',
+            '/dominik-home/images/disquiet/DSC_0572.JPG',
+            '/dominik-home/images/disquiet/DSC_0574.JPG',
+            '/dominik-home/images/disquiet/DSC_0575.JPG',
+            '/dominik-home/images/disquiet/DSC_0577.JPG',
+            '/dominik-home/images/disquiet/DSC_0578.JPG',
+            '/dominik-home/images/disquiet/DSC_0584.JPG',
+            '/dominik-home/images/disquiet/DSC_0587.JPG',
+            '/dominik-home/images/disquiet/image (1).png',
+            '/dominik-home/images/disquiet/DSC_0629.JPG',
+            '/dominik-home/images/disquiet/DSC_0633.JPG',
+            'https://youtu.be/EY59PGJ3V_k',
+            'https://youtu.be/t4FgBQqmSNA',
+            'https://youtu.be/cWjqUiSvsFg',
+            'https://youtu.be/CmKlTLSAyps',
+        ],
+        details: `
+        a controllable led array to show constallations
+
+        born after i found that individually controllabel LEDs are very cheap,
+        the holes in the backboard are arranges to display as many real constallations 
+        as possible, also has modes for different sky views and a speaker for sound effects.
+
+        internet connection to control via a website online
+
+        this project taught me to solder, every led of which there are 40-50 had 3 connection either side,
+        so 45 * 3 * 2 = 270 soldering points, i think it took like 10h
+
+        originally i thought about a spinning device to make a display but this was better.
+        `,
+        stats: [
+            {label: "Time spent", value: "3 weeks"}
+        ],
+        links: []
+    },
+    // chaos
+    {
+        title: 'Chaos Pendulum',
+        tag: 'Engineering',
+        startDate: '2022',
+        endDate: '2022',
+        description: 'a small project to gaze upon the beauty of chaos',
+        image1: '/dominik-home/images/chaos/Chaos Pendulum (1).jpg',
+        image2: '/dominik-home/images/chaos/Chaos_Pendulum_(2).jpg',
+        images: [
+            '/dominik-home/images/chaos/Chaos Pendulum (1).jpg',
+            '/dominik-home/images/chaos/Chaos_Pendulum_(2).jpg',
+            'https://youtu.be/9DSRXqGEiEk',
+            'https://youtu.be/kRcW76c-ZZk',
+            'https://youtu.be/CMGnyCtR5CA',
+            'https://youtu.be/AO2fhzG1B2w',
+        ],
+        details: `
+        a small project to gaze upon the beauty of chaos
+
+        A motorized double pendulum, made out of wood, a 3d printed plastic casing,
+        a servo motor and arduino. Fitted with dynamic lighting.
+        `,
+        stats: [
+            {label: "Time spent", value: "1 month 11 days"}
+        ],
+        links: [],
+    },
+    // gravity
+    {
+        title: 'Gravity Simulation',
+        tag: 'Simulation',
+        startDate: '2021-04-15',
+        endDate: '2021-04-24',
+        description: 'playing around with newtonian gravity simulations',
+        image1: '/dominik-home/images/gravity/gravity (3).png',
+        image2: '/dominik-home/images/gravity/gravity (2).JPG',
+        images: [
+            '/dominik-home/images/gravity/gravity (2).png',
+            '/dominik-home/images/gravity/gravity (3).png',
+            '/dominik-home/images/gravity/gravity (4).png',
+            '/dominik-home/images/gravity/gravity (2).JPG',
+            '/dominik-home/images/gravity/gravity (3).JPG',
+            '/dominik-home/images/gravity/gravity (4).JPG',
+            'https://youtu.be/hCfsjraMaRc',
+        ],
+        details: `
+        Taking a break while doing the DAES
+
+        Solar Sim: April 15-24, 9 days (i think)
+
+        Three Body: August 12, 2021, 1 day
+        `,
+        stats: [],
+        links: [
+            {title: "Solar System Simulation - PC", url:'https://drive.google.com/file/d/1ZdceGFTvNG5vzDfEH3bzUkn3TIHVSudB/view?usp=sharing', filePath:''},
+            {title: "Three body - Android", url:'https://drive.google.com/file/d/1q-ejeIB6ihqUH9df4pHX36R8dH87KhoH/view?usp=sharing', filePath:''},
+            {title: "Gravity Simulation - HTML", url:'https://drive.google.com/file/d/1YDdSvx3ummSVUOzJJsfr70oLFfTmBlYP/view?usp=sharing', filePath:''}
+        ]
+    },
+    // polygon ninja
+    {
+        title: 'Polygon ninja',
+        tag: 'Computer Game',
+        startDate: '2021-07-02',
+        endDate: '2021-08-12',
+        description: 'game(s) about slicing 3d objects',
+        image1: '/dominik-home/images/polygon/polygon (1).png',
+        image2: '/dominik-home/images/polygon/polygon (2).png',
+        images: [
+            '/dominik-home/images/polygon/polygon (1).png',
+            '/dominik-home/images/polygon/polygon (2).png',
+            '/dominik-home/images/polygon/polygon (3).png',
+            '/dominik-home/images/polygon/Polygon Ninja (2).png',
+            '/dominik-home/images/polygon/Polygon Ninja (3).png',
+            '/dominik-home/images/polygon/polygon (4).png',
+        ],
+        details: `
+            VR Slicer: started 2-9 July, 7 days
+
+            Polygon Ninja: started 12 August. 1 day
+
+            Notka: szybka gierki aby pokazac moj genialny algorytm, 
+                ktory dziala tylko 60% czasu, i przetestowac Unity XR`,
+        stats: [],
+        links: [
+            {title: "Polygon Ninja PC version", url:'https://drive.google.com/file/d/1X0ShvZyV7d8lqo0nokJ7bIQMlMBBwq-J/view?usp=sharing', filePath:''},
+            {title: "Polygon Ninja Android version", url:'https://drive.google.com/file/d/1pAk2RWLG3H_Qq2dR-1e5q4GR5AaiiXR5/view?usp=sharing', filePath:''},
+            {title: "Physics VR", url:'https://drive.google.com/file/d/1SrFLOy8KgSO8PDlgPXApOMVPgI_D9PVo/view?usp=sharing', filePath:''}
+        ]
+    }, 
+    // xmasDOS
+    {
+        title: 'christmasDOS',
+        tag: 'Engineering',
+        startDate: '2021-11-19',
+        endDate: '2021-12-06',
+        description: 'a wooden christmas tree that playes music and changes lights',
+        image1: '/dominik-home/images/dos/DSC_0270.JPG',
+        image2: '/dominik-home/images/dos/_20211125_101059.JPG',
+        images: [
+            '/dominik-home/images/dos/_20211119_002240.JPG',
+            '/dominik-home/images/dos/_20211121_132457.JPG',
+            '/dominik-home/images/dos/_20211124_120810.JPG',
+            '/dominik-home/images/dos/_20211124_120841.JPG',
+            '/dominik-home/images/dos/_20211125_101059.JPG',
+            '/dominik-home/images/dos/DSC_0265.JPG',
+            '/dominik-home/images/dos/DSC_0270.JPG',
+            '/dominik-home/images/dos/DSC_0271.JPG',
+            '/dominik-home/images/dos/DSC_0275.JPG',
+            '/dominik-home/images/dos/DSC_0277.JPG',
+            '/dominik-home/images/dos/IMG_20221014_131555.jpg',
+            '/dominik-home/images/dos/IMG_20221013_211955.jpg',
+            'https://www.youtube.com/watch?v=3Dx9uBcoolM',
+            'https://youtu.be/FyOHxBz1YqE?si=J6o-pDji89J4I1Lq',
+            'https://youtu.be/8Y-52JqTwEc?si=SdqqXLbhfiVG73wr',
+            'https://youtu.be/rGNJDvKczU4?si=k3cUHvmzFjQ3aahs',
+        ],
+        details: `
+            a wooden christmas tree that playes music and changes lights
+
+            made out of slightly offset and decreasing in size pieces of plywood,
+            controlled by arduino, music is from a piezo buzzer, with a volume knob.
+
+            later i undertook an upgrade, i bought a slip ring, bearings and 3d printed 
+            gearing to make the entire tree continuously spin (in one direction), my 
+            only project that uses both dc and ac power. 
+
+            The current track and glowing pattern is controllable with a IR remote.
+        `,
+        stats: [
+            {label: "Time spent", value: "v1 - 9days, v2 - longer..."}
+        ],
+        links: []
+    },
+    // calc.io
+    {
+        title: 'Calc.io',
+        tag: 'Engineering',
+        startDate: '2022-12',
+        endDate: '2023-01',
+        description: 'a self-build calculator, do NOT divide by zero',
+        image1: '/dominik-home/images/calc/IMG_20230125_174154.jpg',
+        image2: '/dominik-home/images/calc/IMG_20221227_004918.jpg',
+        images: [
+            '/dominik-home/images/calc/IMG_20221203_020153.jpg',
+            '/dominik-home/images/calc/IMG_20221204_231024.jpg',
+            '/dominik-home/images/calc/IMG_20221207_175215.jpg',
+            '/dominik-home/images/calc/IMG_20221207_231605.jpg',
+            '/dominik-home/images/calc/IMG_20221207_231712.jpg',
+            '/dominik-home/images/calc/IMG_20221208_231021.jpg',
+            '/dominik-home/images/calc/IMG_20221214_233935.jpg',
+            '/dominik-home/images/calc/IMG_20221214_234016.jpg',
+            '/dominik-home/images/calc/IMG_20221227_004918.jpg',
+            '/dominik-home/images/calc/IMG_20221229_232231.jpg',
+            '/dominik-home/images/calc/IMG_20230106_220229.jpg',
+            '/dominik-home/images/calc/IMG_20230125_174154.jpg',
+            'https://youtu.be/5EYUNZrHSXc',
+
+        ],
+        details: `
+            made out of wood panels, some plexi in the back,
+            3d printed buttons and a paper display.
+            Supports basic operations + - * / sqrt pow and i think unit conversion?
+            fitted with rechargeable battery
+        `,
+        stats: [
+        ],
+        links: [],
+    },
+    // particles
+    {
+        title: 'Particle Simulations',
+        tag: 'Simulation',
+        startDate: '2021-09',
+        endDate: '2021-09',
+        description: 'playing around with particles',
+        image1: '/dominik-home/images/particles/Particles VII.JPG',
+        image2: '/dominik-home/images/particles/Particles V.JPG',
+        images: [
+            '/dominik-home/images/particles/Particles V.JPG',
+            '/dominik-home/images/particles/Particles VII.JPG',
+            'https://youtu.be/Wavc3CdgrGE',
+            'https://youtu.be/cTLkQZIiiEs',
+            'https://youtu.be/I6bxJUzhSXw',
+            'https://youtu.be/nL1JxKPHErQ',
+        ],
+        details: `
+            simulating gravity, collision, molecule life
+        `,
+        stats: [
+        ],
+        links: [],
+    },
+    // fishing
+    {
+        title: 'Fishing in 2417',
+        tag: 'Computer Game',
+        startDate: '2022-05',
+        endDate: '2022-05',
+        description: 'a game about fishing in the future',
+        image1: '/dominik-home/images/fishing/fishing (6).png',
+        image2: '/dominik-home/images/fishing/fishing (3).png',
+        images: [
+            '/dominik-home/images/fishing/fishing (1).png',
+            '/dominik-home/images/fishing/fishing (2).png',
+            '/dominik-home/images/fishing/fishing (3).png',
+            '/dominik-home/images/fishing/fishing (4).png',
+            '/dominik-home/images/fishing/fishing (5).png',
+            '/dominik-home/images/fishing/fishing (6).png',
+            '/dominik-home/images/fishing/fishing (7).png',
+            '/dominik-home/images/fishing/fishing (8).png',
+            '/dominik-home/images/fishing/fishing (1).jpg',
+            '/dominik-home/images/fishing/fishing (2).jpg',
+            '/dominik-home/images/fishing/fishing (3).JPG',
+            'https://youtu.be/zBdteTejxA4',
+            'https://youtu.be/fCfxW-BThqU',
+            'https://youtu.be/_lRl5IoEr8w',
+        ],
+        details: `
+            i wanted to make a pixel art sci-fi game with fishing elements 
+            using a real-time fluid simulation but I never managed to make it performant enough to handle 
+            a large map.
+            The idea was a game where you can use mini-submarines and cameras to look at fish and ocean water.
+            I also implemented a dynamic simulation of fish boids, 
+            Finally I made a game with the simualtion - the Giraffean Campaign (different project).
+        `,
+        stats: [
+        ],
+        links: [],
+    },
+    // chasm
+    {
+        title: 'Crossed Chasm',
+        tag: 'Model',
+        startDate: '2022-10',
+        endDate: '2022-10',
+        description: 'a model of a concrete bridge',
+        image1: '/dominik-home/images/chasm/Crossed Chasm (5).JPG',
+        image2: '/dominik-home/images/chasm/Crossed Chasm (4).JPG',
+        images: [
+            '/dominik-home/images/chasm/Crossed Chasm (1).JPG',
+            '/dominik-home/images/chasm/Crossed Chasm (2).JPG',
+            '/dominik-home/images/chasm/Crossed Chasm (3).JPG',
+            '/dominik-home/images/chasm/Crossed Chasm (4).JPG',
+            '/dominik-home/images/chasm/Crossed Chasm (5).JPG',
+            '/dominik-home/images/chasm/Crossed Chasm (6).JPG',
+            '/dominik-home/images/chasm/Crossed Chasm (7).JPG',
+            '/dominik-home/images/chasm/Crossed Chasm (8).JPG',
+            '/dominik-home/images/chasm/Crossed Chasm (9).JPG',
+            '/dominik-home/images/chasm/Crossed Chasm (10).JPG',
+            '/dominik-home/images/chasm/Crossed Chasm (11).png',
+        ],
+        details: `
+            i never replaced the batteries and they died after like 2 weeks, 
+            the case is made from some leftover wood pices and leftover plexi.
+        `,
+        stats: [
+        ],
+        links: [],
+    },
+    //confinement
+    {
+        title: 'Confinement',
+        tag: 'Model',
+        startDate: '2020-12',
+        endDate: '2020-12',
+        description: 'a styrofoam model of a confined tent',
+        image1: '/dominik-home/images/confinement/Confinement (9).JPG',
+        image2: '/dominik-home/images/confinement/Confinement (2).JPG',
+        images: [
+            '/dominik-home/images/confinement/Confinement (0).png',
+            '/dominik-home/images/confinement/Confinement (1).JPG',
+            '/dominik-home/images/confinement/Confinement (2).JPG',
+            '/dominik-home/images/confinement/Confinement (2).png',
+            '/dominik-home/images/confinement/Confinement (3).JPG',
+            '/dominik-home/images/confinement/Confinement (4).JPG',
+            '/dominik-home/images/confinement/Confinement (5).JPG',
+            '/dominik-home/images/confinement/Confinement (6).JPG',
+            '/dominik-home/images/confinement/Confinement (7).JPG',
+            '/dominik-home/images/confinement/Confinement (8).JPG',
+            '/dominik-home/images/confinement/Confinement (9).JPG',
+            '/dominik-home/images/confinement/Confinement (10).JPG',
+            '/dominik-home/images/confinement/Confinement (11).JPG',
+            '/dominik-home/images/confinement/Confinement (12).JPG',
+            '/dominik-home/images/confinement/Confinement (13).JPG',
+            '/dominik-home/images/confinement/Confinement (14).JPG',
+            '/dominik-home/images/confinement/Confinement (15).JPG',
+            '/dominik-home/images/confinement/Confinement (16).JPG',
+            '/dominik-home/images/confinement/Confinement (17).JPG',
+            '/dominik-home/images/confinement/Confinement (18).JPG',
+        ],
+        details: `
+            the world isnt bent on the right, it was a design choice to
+            make some underground terrain but fit it in the space ;)
+        `,
+        stats: [
+        ],
+        links: [],
+    },
+    // scalar
+    {
+        title: 'Scalar',
+        tag: 'Computer Game',
+        startDate: '2020-08-16',
+        endDate: '2020-11-16',
+        description: 'first complete game, a typical pixel-art platformer (with guns obviously)',
+        image1: '/dominik-home/images/scalar/scalar (2).png',
+        image2: '/dominik-home/images/scalar/scalar (6).png',
+        images: [
+            '/dominik-home/images/scalar/scalar (1).png',
+            '/dominik-home/images/scalar/scalar (2).png',
+            '/dominik-home/images/scalar/scalar (3).png',
+            '/dominik-home/images/scalar/scalar (4).png',
+            '/dominik-home/images/scalar/scalar (5).png',
+            '/dominik-home/images/scalar/scalar (6).png',
+            '/dominik-home/images/scalar/scalar (7).png',
+            '/dominik-home/images/scalar/scalar (8).png',
+        ],
+        details: `
+        First finished game, a platformaer where you battle new york mafia in
+        fedoras while being a banana-man i guess. Pixel art and guns.
+        Actually feels almost finished and somewhat fun to play so there is that :)
+        `,
+        stats: [
+            {label: "Time spent", value: "3 months"}
+        ],
+        links: [
+            {title: "Scalar PC version", url:'https://drive.google.com/file/d/1UY55g5vfPRTrlDunAN6socQnu9LB02k3/view?usp=sharing', filePath:''}
+        ]
+    },
+    // daes
+    {
+        title: 'DAES Console',
+        tag: 'Engineering',
+        startDate: '2021-05',
+        endDate: '2021-05',
+        description: 'a game console with a matrix display',
+        image1: '/dominik-home/images/daes/DAES (7).JPG',
+        image2: '/dominik-home/images/daes/DAES (10).JPG',
+        images: [
+            '/dominik-home/images/daes/DAES (1).jpg',
+            '/dominik-home/images/daes/DAES (2).jpg',
+            '/dominik-home/images/daes/DAES (3).jpg',
+            '/dominik-home/images/daes/DAES (4).jpg',
+            '/dominik-home/images/daes/DAES (5).jpg',
+            '/dominik-home/images/daes/DAES (6).jpg',
+            '/dominik-home/images/daes/DAES (7).JPG',
+            '/dominik-home/images/daes/DAES (8).jpg',
+            '/dominik-home/images/daes/DAES (9).JPG',
+            '/dominik-home/images/daes/DAES (10).JPG',
+            '/dominik-home/images/daes/DAES (11).JPG',
+            '/dominik-home/images/daes/DAES (12).JPG',
+            '/dominik-home/images/daes/DAES (13).JPG',
+            'https://youtu.be/Ls85uMQ-O8I',
+        ],
+        details: `
+            I scripted all the games I could think of and then filed the rest of the 
+            arduino memory with 8bit tunes. You can play: space invaders, pong, flappy bird,
+            tetris, snake, sand simulation, music player, temperature display, Conway's game of life,
+            asteroids.
+        `,
+        stats: [
+        ],
+        links: [],
+    },
+]

@@ -1,0 +1,10 @@
+body {
+  background-color: #317873; 
+  font-family: 'Necto Mono', monospace;
+  color: #000000;
+  margin: 0;
+  padding: 2rem;
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

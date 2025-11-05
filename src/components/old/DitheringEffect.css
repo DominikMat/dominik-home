@@ -1,0 +1,9 @@
+.dithering-canvas {
+    position: fixed; /* Stała pozycja na ekranie */
+    top: 0;
+    left: 0;
+    width: 100vw;   /* Rozciągnięcie na całą szerokość (dla resize) */
+    height: 100vh;  /* Rozciągnięcie na całą wysokość */
+    pointer-events: none; /* Umożliwia klikanie elementów POD Canvas */
+    z-index: 1; /* Niska wartość, aby było pod nawigacją i innymi elementami */
+}
