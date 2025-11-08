@@ -27,6 +27,7 @@ export interface ProjectInfo {
     details: string;
     stats: StatInfo[];
     links: LinkInfo[];
+    galleryAspectMult: number;
 }
 
 export const ProjectData: ProjectInfo[] = [
@@ -64,7 +65,8 @@ export const ProjectData: ProjectInfo[] = [
     links: [
         {title: "This site git repo", url:'https://github.com/DominikMat/dominik-home.git', filePath:''},
         {title: "Old portfolio git repo", url:'https://github.com/DominikMat/portfolio_website.git', filePath:''},
-    ]
+    ],
+        galleryAspectMult: 12,
     },
     // rubiks
     {
@@ -91,7 +93,8 @@ export const ProjectData: ProjectInfo[] = [
     ],
     links: [
         {title: "Github Repository", url:'https://github.com/filip-zolnierczyk/PythonCubeProject.git', filePath:''},
-    ]
+    ],
+        galleryAspectMult: 12,
     },
     // online shop
     {
@@ -119,7 +122,8 @@ export const ProjectData: ProjectInfo[] = [
     ],
     links: [
         {title: "Github Repository", url:'https://github.com/AdrianSuliga/OnlineShop.git', filePath:''},
-    ]
+    ],
+        galleryAspectMult: 12,
     },
     // stargazing
     {
@@ -148,7 +152,8 @@ export const ProjectData: ProjectInfo[] = [
     ],
     links: [
         {title: "Github Repository (under projekt1)", url:'https://github.com/DominikMat/Apki-Internetowe.git', filePath:''},
-    ]
+    ],
+        galleryAspectMult: 12,
     },
     // evolution
     {
@@ -173,7 +178,8 @@ export const ProjectData: ProjectInfo[] = [
     ],
     links: [
         {title: "Github Repository", url:'https://github.com/tomaszmol/projekt_PO.git', filePath:''},
-    ]
+    ],
+        galleryAspectMult: 12,
     },
     // giraffean
     {
@@ -216,7 +222,8 @@ export const ProjectData: ProjectInfo[] = [
     links: [
         {title: "The Giraffen Campaign PC version", url:'https://drive.google.com/file/d/1h3rdz3KpPmPdXKzXBId05vOXWw41Er4M/view?usp=sharing', filePath:''},
         {title: "Devlog Videos (YT Playlist)", url:'https://www.youtube.com/playlist?list=PLJX6VUSvLT5RVY-xhGaSjj7B042wMYZIM', filePath:''}
-    ]
+    ],
+        galleryAspectMult: 12,
     },
     // gong
     {
@@ -253,7 +260,8 @@ export const ProjectData: ProjectInfo[] = [
         also the hammer is from a kalimba.
         `,
         stats: [],
-        links: []
+        links: [],
+        galleryAspectMult: 6,
     },
     // fluid sims
     {
@@ -290,7 +298,8 @@ export const ProjectData: ProjectInfo[] = [
         {title: "Fluid Engine Videos (YT Playlist)", url:'https://www.youtube.com/playlist?list=PLJX6VUSvLT5RnLE8cEcDfddoYloI3ZBgT', filePath:''},
         {title: "SPH Fluid Videos (YT Playlist)", url:'https://www.youtube.com/playlist?list=PLJX6VUSvLT5RpJeCM139PUpdwGMB6E-0r', filePath:''},
         {title: "SPH Fluid Simulation - HTML", url:'https://drive.google.com/file/d/1X7boNwWbTHN7smb6Bz7bNeCsBvWzxY0O/view?usp=sharing', filePath:''},
-    ]
+    ],
+        galleryAspectMult: 10,
     },
     // softbodies
     {
@@ -319,7 +328,8 @@ export const ProjectData: ProjectInfo[] = [
         {title: "Softbody Simulation SFML - PC", url:'https://drive.google.com/file/d/1JsPKmjE6ILm1fNppHuHoclQEhjUEIPkf/view?usp=sharing', filePath:''},
         {title: "Softbody Simulation HTML - PC", url:'https://drive.google.com/file/d/1VMwr1ccoLVnojJbPXA4FvKxlqpe52lCn/view?usp=sharing', filePath:''},
         {title: "Abstract Softness - Android", url:'https://drive.google.com/file/d/1P7MzJqBDNhVHBO0WR_cFF6cDa7FZYd-s/view?usp=sharing', filePath:''},
-    ]
+    ],
+        galleryAspectMult: 20,
     },
     // disquiet
     {
@@ -364,7 +374,8 @@ export const ProjectData: ProjectInfo[] = [
         stats: [
             {label: "Time spent", value: "3 weeks"}
         ],
-        links: []
+        links: [],
+        galleryAspectMult: 3,
     },
     // chaos
     {
@@ -393,6 +404,7 @@ export const ProjectData: ProjectInfo[] = [
             {label: "Time spent", value: "1 month 11 days"}
         ],
         links: [],
+        galleryAspectMult: 20,
     },
     // gravity
     {
@@ -424,7 +436,8 @@ export const ProjectData: ProjectInfo[] = [
             {title: "Solar System Simulation - PC", url:'https://drive.google.com/file/d/1ZdceGFTvNG5vzDfEH3bzUkn3TIHVSudB/view?usp=sharing', filePath:''},
             {title: "Three body - Android", url:'https://drive.google.com/file/d/1q-ejeIB6ihqUH9df4pHX36R8dH87KhoH/view?usp=sharing', filePath:''},
             {title: "Gravity Simulation - HTML", url:'https://drive.google.com/file/d/1YDdSvx3ummSVUOzJJsfr70oLFfTmBlYP/view?usp=sharing', filePath:''}
-        ]
+        ],
+        galleryAspectMult: 20,
     },
     // polygon ninja
     {
@@ -455,7 +468,8 @@ export const ProjectData: ProjectInfo[] = [
             {title: "Polygon Ninja PC version", url:'https://drive.google.com/file/d/1X0ShvZyV7d8lqo0nokJ7bIQMlMBBwq-J/view?usp=sharing', filePath:''},
             {title: "Polygon Ninja Android version", url:'https://drive.google.com/file/d/1pAk2RWLG3H_Qq2dR-1e5q4GR5AaiiXR5/view?usp=sharing', filePath:''},
             {title: "Physics VR", url:'https://drive.google.com/file/d/1SrFLOy8KgSO8PDlgPXApOMVPgI_D9PVo/view?usp=sharing', filePath:''}
-        ]
+        ],
+        galleryAspectMult:8,
     }, 
     // xmasDOS
     {
@@ -499,7 +513,8 @@ export const ProjectData: ProjectInfo[] = [
         stats: [
             {label: "Time spent", value: "v1 - 9days, v2 - longer..."}
         ],
-        links: []
+        links: [],
+        galleryAspectMult: 3.5,
     },
     // calc.io
     {
@@ -535,6 +550,7 @@ export const ProjectData: ProjectInfo[] = [
         stats: [
         ],
         links: [],
+        galleryAspectMult: 8,
     },
     // particles
     {
@@ -559,6 +575,7 @@ export const ProjectData: ProjectInfo[] = [
         stats: [
         ],
         links: [],
+        galleryAspectMult: 20,
     },
     // fishing
     {
@@ -596,6 +613,7 @@ export const ProjectData: ProjectInfo[] = [
         stats: [
         ],
         links: [],
+        galleryAspectMult: 4.3,
     },
     // chasm
     {
@@ -626,6 +644,7 @@ export const ProjectData: ProjectInfo[] = [
         stats: [
         ],
         links: [],
+        galleryAspectMult: 4.7,
     },
     //confinement
     {
@@ -665,6 +684,7 @@ export const ProjectData: ProjectInfo[] = [
         stats: [
         ],
         links: [],
+        galleryAspectMult: 3.5,
     },
     // scalar
     {
@@ -695,7 +715,8 @@ export const ProjectData: ProjectInfo[] = [
         ],
         links: [
             {title: "Scalar PC version", url:'https://drive.google.com/file/d/1UY55g5vfPRTrlDunAN6socQnu9LB02k3/view?usp=sharing', filePath:''}
-        ]
+        ],
+        galleryAspectMult: 20,
     },
     // daes
     {
@@ -731,5 +752,6 @@ export const ProjectData: ProjectInfo[] = [
         stats: [
         ],
         links: [],
+        galleryAspectMult: 4,
     },
 ]

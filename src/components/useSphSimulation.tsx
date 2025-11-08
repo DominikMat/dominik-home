@@ -3,10 +3,14 @@
 import { useState, useEffect, useCallback } from 'react';
 import * as settings from './SimulationSettings';
 import { MouseData, SphSimulationProps, ParticleState} from './types';
+import { SurfaceArc } from './useGasketSetup';
 
 // Typ dla danych myszy
 
-export const useSphSimulation = ({ size, biggestCircle, normalizeAndScale }: SphSimulationProps) => {
+const TWO_PI = 2*Math.PI;
+const norm = (a:number) => (a % TWO_PI + TWO_PI) % TWO_PI;
+
+export const useSphSimulation = ({ size, planetData, collisionSurface }: SphSimulationProps) => {
     const [particles, setParticles] = useState<ParticleState[]>([]);
 
     const W = size;
@@ -30,7 +34,6 @@ export const useSphSimulation = ({ size, biggestCircle, normalizeAndScale }: Sph
 
     // 4.2. FUNKCJA OBLICZANIA SIŁ (GRAWITACJA CENTRALNA + WIATR OBROTOWY)
     const computeForces = useCallback((currentParticles: ParticleState[]): ParticleState[] => {
-        const { canvasX: planetX, canvasY: planetY, canvasR: planetR } = normalizeAndScale(biggestCircle.x, biggestCircle.y, biggestCircle.r);
 
         const newParticles = currentParticles.map(p => ({ ...p, fx: 0, fy: 0 }));
 
@@ -65,22 +68,29 @@ export const useSphSimulation = ({ size, biggestCircle, normalizeAndScale }: Sph
             }
             
             // Grawitacja Centralna
-            const dx = planetX - newParticles[p1].x;
-            const dy = planetY - newParticles[p1].y;
+            const dx = planetData.x - newParticles[p1].x;
+            const dy = planetData.y - newParticles[p1].y;
             const distSq = dx * dx + dy * dy;
             const dist = Math.sqrt(distSq);
             
-            const gravityX = (dx / dist) * settings.CENTRAL_GRAVITY_STRENGTH;
-            const gravityY = (dy / dist) * settings.CENTRAL_GRAVITY_STRENGTH;
+            let gravityX = 0; let gravityY = 0;
+
+            if (dist > planetData.r) {
+                gravityX = (dx / dist) * settings.CENTRAL_GRAVITY_STRENGTH;
+                gravityY = (dy / dist) * settings.CENTRAL_GRAVITY_STRENGTH;
+            } else {
+                gravityX = (dx / dist) * settings.CENTRAL_GRAVITY_STRENGTH * (dist/planetData.r);
+                gravityY = (dy / dist) * settings.CENTRAL_GRAVITY_STRENGTH * (dist/planetData.r);
+            }
 
             // --- Tarcie Powierzchniowe (Surface Drag) ---
-            if (dist > planetR) {
+            if (dist > planetData.r) {
                 const normX = -dx / dist; 
                 const normY = -dy / dist;
                 const radialSpeed = newParticles[p1].vx * normX + newParticles[p1].vy * normY;
                 const tanVelX = newParticles[p1].vx - radialSpeed * normX;
                 const tanVelY = newParticles[p1].vy - radialSpeed * normY;
-                const distanceFromSurface = dist - planetR;
+                const distanceFromSurface = dist - planetData.r;
                 const influence = Math.max(0, 1 - distanceFromSurface / settings.SUPPORT_RAD);
                 surfaceDragX = -tanVelX * influence * settings.SURFACE_DRAG_STRENGTH;
                 surfaceDragY = -tanVelY * influence * settings.SURFACE_DRAG_STRENGTH;
@@ -92,12 +102,10 @@ export const useSphSimulation = ({ size, biggestCircle, normalizeAndScale }: Sph
             newParticles[p1].fy = pressureY + viscosityY + gravityY + surfaceDragY;
         }
         return newParticles;
-    }, [biggestCircle, normalizeAndScale]);
+    }, [planetData]);
 
     // 4.3. FUNKCJA APLIKACJI I KOLIZJI 
     const applyPhysics = useCallback((currentParticles: ParticleState[], mouseData: MouseData): ParticleState[] => {
-        const { canvasX: planetX, canvasY: planetY, canvasR: planetR } = normalizeAndScale(biggestCircle.x, biggestCircle.y, biggestCircle.r);
-
         const mouseVelX = mouseData.vx;
         const mouseVelY = mouseData.vy;
         const mousePosX = mouseData.px;
@@ -120,40 +128,54 @@ export const useSphSimulation = ({ size, biggestCircle, normalizeAndScale }: Sph
                 vy += mouseVelY * settings.MOUSE_EFFECT_MULT;
             }
 
-            // KOLIZJA Z PLANETĄ (Największe koło)
-            const dx = x - planetX;
-            const dy = y - planetY;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            const collisionRadius = planetR + settings.DROPLET_RADIUS * 1.5; 
-
-            if (dist < collisionRadius) {
-                const penetrationDepth = collisionRadius - dist;
-                const normX = dx / dist;
-                const normY = dy / dist;
-                x += normX * penetrationDepth;
-                y += normY * penetrationDepth;
-
-                const speedAlongNormal = vx * normX + vy * normY;
-
-                if (speedAlongNormal < 0) {
-                    const normalVelX = speedAlongNormal * normX;
-                    const normalVelY = speedAlongNormal * normY;
-                    const tangentVelX = vx - normalVelX;
-                    const tangentVelY = vy - normalVelY;
-                    vx = tangentVelX - normalVelX * settings.PARTICLE_BOUNCE_MULT;
-                    vy = tangentVelY - normalVelY * settings.PARTICLE_BOUNCE_MULT;
-                }
-            }
-
             // Kolizje ze ścianami
             if (x < settings.DROPLET_RADIUS || x > W - settings.DROPLET_RADIUS) vx *= -settings.PARTICLE_BOUNCE_MULT;
             if (y < settings.DROPLET_RADIUS || y > H - settings.DROPLET_RADIUS) vy *= -settings.PARTICLE_BOUNCE_MULT;
             x = Math.max(settings.DROPLET_RADIUS, Math.min(W - settings.DROPLET_RADIUS, x));
             y = Math.max(settings.DROPLET_RADIUS, Math.min(H - settings.DROPLET_RADIUS, y));
 
+            // KOLIZJA Z PLANETĄ 
+            for(let j=0; j<collisionSurface.length; j++){
+                let a = collisionSurface[j];
+                if (!a.enabled || !a.surface) continue;
+
+                let dx = x - a.x;
+                let dy = y  - a.y;
+
+                if (!a.fullCircle) {
+                    let particleAngle = Math.atan2(dy,dx);
+                    if (norm(particleAngle-a.angleStart) > a.angleSpan) continue;
+                }
+                let dist = Math.sqrt(dx*dx+dy*dy);
+                let collisionSide = (a.outer ? 1 : -1);
+
+                const collisionBandOtherSide = 1.0*settings.DROPLET_RADIUS; 
+                const collisionBandCollisionSide = 4.0*settings.DROPLET_RADIUS;
+
+                if ( (a.outer && (dist > a.r - collisionBandOtherSide && dist < a.r + collisionBandCollisionSide) )
+                    || (!a.outer && (dist > a.r - collisionBandCollisionSide && dist < a.r + collisionBandOtherSide)) ) {
+
+                    const penetrationDepth = (a.r - dist) * collisionSide + collisionBandCollisionSide ;
+                    const normX = dx / dist * collisionSide;
+                    const normY = dy / dist * collisionSide;
+                    x += normX * penetrationDepth;
+                    y += normY * penetrationDepth;
+
+                    const speedAlongNormal = vx * normX + vy * normY;
+
+                    if (speedAlongNormal < 0) {
+                        const normalVelX = speedAlongNormal * normX;
+                        const normalVelY = speedAlongNormal * normY;
+                        const tangentVelX = vx - normalVelX;
+                        const tangentVelY = vy - normalVelY;
+                        vx = tangentVelX - normalVelX * settings.PARTICLE_BOUNCE_MULT;
+                        vy = tangentVelY - normalVelY * settings.PARTICLE_BOUNCE_MULT;
+                    }
+                }
+            }
             return { ...p, x, y, vx, vy };
         });
-    }, [biggestCircle, normalizeAndScale, W, H]);
+    }, [planetData, W, H, collisionSurface]);
 
     // 4.4. PĘTLA SPH
     const sphLoop = useCallback((mouseData: MouseData) => {
@@ -170,45 +192,43 @@ export const useSphSimulation = ({ size, biggestCircle, normalizeAndScale }: Sph
             let updatedParticles = applyPhysics(withForces, mouseData);
 
             // --- TRANSFORMACJA ROTACYJNA 1:1 ---
-            const ROTATION_ANGLE = settings.ROTATION_SPEED;
-            const { canvasX: planetCX, canvasY: planetCY } = normalizeAndScale(biggestCircle.x, biggestCircle.y, biggestCircle.r);
+            // const ROTATION_ANGLE = settings.ROTATION_SPEED;
 
-            //if (ROTATION_ANGLE !== 0) {
-            const cosA = Math.cos(ROTATION_ANGLE);
-            const sinA = Math.sin(ROTATION_ANGLE);
+            // //if (ROTATION_ANGLE !== 0) {
+            // const cosA = Math.cos(ROTATION_ANGLE);
+            // const sinA = Math.sin(ROTATION_ANGLE);
 
-            updatedParticles = updatedParticles.map(p => {
-                const dx = p.x - planetCX;
-                const dy = p.y - planetCY;
+            // updatedParticles = updatedParticles.map(p => {
+            //     const dx = p.x - planetData.x;
+            //     const dy = p.y - planetData.y;
 
-                const rotatedDX = dx * cosA - dy * sinA;
-                const rotatedDY = dx * sinA + dy * cosA;
+            //     const rotatedDX = dx * cosA - dy * sinA;
+            //     const rotatedDY = dx * sinA + dy * cosA;
 
-                const newX = planetCX + rotatedDX;
-                const newY = planetCY + rotatedDY;
+            //     const newX = planetData.x + rotatedDX;
+            //     const newY = planetData.y + rotatedDY;
 
-                return { ...p, x: newX, y: newY };
-            });
+            //     return { ...p, x: newX, y: newY };
+            // });
             //}
             // --- KONIEC TRANSFORMACJI ROTACYJNEJ ---
 
             return updatedParticles;
         });
-    }, [computeState, computeForces, applyPhysics, normalizeAndScale, biggestCircle]);
+    }, [computeState, computeForces, applyPhysics, planetData]);
 
     // 3. INICJALIZACJA SPH
     useEffect(() => {
         const initialParticles: ParticleState[] = [];
-        const { canvasX: planetX, canvasY: planetY, canvasR: planetR } = normalizeAndScale(biggestCircle.x, biggestCircle.y, biggestCircle.r);
 
-        const spawnRadius = planetR + settings.SUPPORT_RAD * 3; 
+        const spawnRadius = planetData.r + settings.SUPPORT_RAD * 2; 
 
         for (let i = 0; i < settings.PARTICLE_NUM; i++) {
             const angle = Math.random() * 2 * Math.PI;
-            const distance = planetR * 1.05 + Math.random() * (spawnRadius - planetR);
+            const distance = (planetData.r+settings.SUPPORT_RAD) + Math.random() * (spawnRadius - planetData.r);
 
-            const x = planetX + distance * Math.cos(angle);
-            const y = planetY + distance * Math.sin(angle);
+            const x = planetData.x + distance * Math.cos(angle);
+            const y = planetData.y + distance * Math.sin(angle);
 
             initialParticles.push({
                 x, y,
@@ -219,7 +239,7 @@ export const useSphSimulation = ({ size, biggestCircle, normalizeAndScale }: Sph
         }
 
         setParticles(initialParticles);
-    }, [size, normalizeAndScale, biggestCircle]);
+    }, [size, planetData]);
 
     return { particles, sphLoop };
 };

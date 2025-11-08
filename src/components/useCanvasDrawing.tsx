@@ -3,63 +3,107 @@
 import { useCallback, useEffect, RefObject } from 'react'; // Dodaj RefObject
 import { AppollonianGasketCircles } from './ApollonianData';
 import { ParticleState, CircleData } from './types';
+import { SurfaceArc } from './useGasketSetup';
 import * as settings from './SimulationSettings';
+import { click } from '@testing-library/user-event/dist/click';
 
 // Typ dla funkcji normalizującej
 type NormalizeAndScaleFunc = (x: number, y: number, r: number) => { canvasX: number; canvasY: number; canvasR: number };
 
+let gasketImgLoaded = false;
+const gasketSvgPath = '/dominik-home/apoll_gasket.svg';
+const gasketSvg = new Image();
+
+gasketSvg.onload = () => { gasketImgLoaded = true; };
+gasketSvg.onerror = (e) => { console.error('Błąd ładowania obrazu', e); };
+gasketSvg.src = gasketSvgPath;
+
 export const useCanvasDrawing = (
     canvasRef: RefObject<HTMLCanvasElement | null>, 
     size: number, 
-    normalizeAndScale: NormalizeAndScaleFunc,
-    rotation: number, 
-    particles: ParticleState[]
+/*     normalizeAndScale: NormalizeAndScaleFunc,
+ */    rotation: number, 
+    particles: ParticleState[],
+    gasketArcs: SurfaceArc[],
+    planetData: CircleData,
+    clickCircle: RefObject<CircleData>,
+    sliceHoles: CircleData[]
 ) => {
 
     // 5. RYSOWANIE NA CANVAS (Gasket + SPH)
-    const drawAll = useCallback((ctx: CanvasRenderingContext2D, circles: CircleData[], currentRotation: number, currentParticles: ParticleState[]) => {
+    const drawAll = useCallback((ctx: CanvasRenderingContext2D, currentRotation: number, currentParticles: ParticleState[]) => {
 
         ctx.clearRect(0, 0, size, size);
 
-        // --- A. Rysowanie Fraktala (Planety) ---
+        // --- Rotate canvas ---
         const center = size / 2;
         ctx.save();
         ctx.translate(center, center);
         ctx.rotate(currentRotation);
         ctx.translate(-center, -center);
-
-        ctx.strokeStyle = '#000000';
-        ctx.lineWidth = settings.BORDER_WIDTH;
-
-        circles.forEach((circle,idx) => {
-            //if(idx > 50) return;
-            const { canvasX, canvasY, canvasR } = normalizeAndScale(circle.x, circle.y, circle.r);
+        
+        // --- Draw gasket SVG ---
+        if (gasketImgLoaded) {
+            const box = planetData.r * 2;
+            const scale = Math.max(box / gasketSvg.width, box / gasketSvg.height);
+            const dw = gasketSvg.width * scale;
+            const dh = gasketSvg.height * scale;
+            const dx = planetData.x - dw / 2;
+            const dy = planetData.y - dh / 2;
+            ctx.drawImage(gasketSvg, dx, dy, dw, dh);
+        }
+    
+        // --- Erasme sliced holes in svg ---
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.fillStyle = '#000'
+        for (let i = 0; i < sliceHoles.length; i++) {
+            let h = sliceHoles[i];
             ctx.beginPath();
-            ctx.arc(canvasX, canvasY, canvasR, 0, 2 * Math.PI);
-            ctx.fillStyle = `rgba(0, 0, 0, ${(1 - circle.r/2.5)*0.15})`;
+            ctx.arc(h.x, h.y, h.r, 0, Math.PI*2);
+            ctx.closePath();
             ctx.fill();
-            ctx.stroke();
-        });
-        ctx.restore(); 
+        }
+        
+        ctx.restore();
 
-        //createImageBitmap("/apoll_gasket.svg");
-
-        // --- B. Rysowanie Cząstek SPH ---
+        // --- Rysowanie Cząstek SPH ---
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.8)'; // Ciemny, półprzezroczysty kolor
         currentParticles.forEach(p => {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.8)'; // Ciemny, półprzezroczysty kolor
             ctx.beginPath();
             ctx.arc(p.x, p.y, settings.DROPLET_RADIUS, 0, 2 * Math.PI);
             ctx.fill();
         });
 
-    }, [size, normalizeAndScale]);
+        // --- Draw Collision Surface ---
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = settings.SURFACE_WIDTH;
+        gasketArcs.forEach((arc,idx) => {
+            if (arc.enabled && arc.surface) {
+                ctx.beginPath();
+                if (arc.fullCircle) ctx.arc(arc.x, arc.y, arc.r, 0, 2 * Math.PI);
+                else ctx.arc(arc.x, arc.y, arc.r, arc.angleStart, arc.angleStart+arc.angleSpan);
+                ctx.stroke();
+            }
+        });
+
+        // --- Rysowanie Sfery destrukcji ---
+        ctx.strokeStyle = '#b1b1b1ff'
+        ctx.lineWidth = 4;
+        ctx.fillStyle = '#86868636';
+
+        ctx.beginPath();
+        ctx.arc(clickCircle.current.x, clickCircle.current.y, clickCircle.current.r, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.stroke();
+
+    }, [size]);
 
     // Rysowanie po każdej zmianie stanu (rotation lub particles)
     useEffect(() => {
         const canvas = canvasRef.current;
         const ctx = canvas?.getContext('2d');
         if (ctx) {
-            drawAll(ctx, AppollonianGasketCircles, rotation, particles);
+            drawAll(ctx, rotation, particles);
         }
     }, [rotation, particles, drawAll, canvasRef]);
 };

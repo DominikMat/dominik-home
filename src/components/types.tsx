@@ -1,3 +1,6 @@
+import { RefObject } from 'react';
+import { SurfaceArc } from './useGasketSetup';
+
 // Typ dla pojedynczej cząstki SPH
 export interface ParticleState {
     x: number;
@@ -19,14 +22,13 @@ export interface CircleData {
 // Typ dla danych wejściowych
 export type SphSimulationProps = {
     size: number;
-    biggestCircle: CircleData;
-    normalizeAndScale: (x: number, y: number, r: number) => { canvasX: number; canvasY: number; canvasR: number };
+    planetData: CircleData;
+    collisionSurface: SurfaceArc[];
 };
 
 export interface GasketProps {
     positionX: string; 
     positionY: string; 
-    scale: number;     
     size: number;      
 }
 
@@ -39,4 +41,15 @@ export type MouseData = {
 
 export type MouseRefs = {
     mouseData: MouseData;
+    clickCircle: RefObject<CircleData>;
+    isMousePressed: RefObject<boolean>;
+};
+
+// Typ dla zwracanych funkcji i stałych
+export type GasketSetupResult = {
+    centerX: number;
+    centerY: number;
+    maxDimension: number;
+    normalizeAndScale: (x: number, y: number, r: number) => { canvasX: number; canvasY: number; canvasR: number };
+    biggestCircle: CircleData;
 };

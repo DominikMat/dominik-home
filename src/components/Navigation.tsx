@@ -47,7 +47,7 @@ const Navigation: React.FC = () => {
                 <a onClick={() => changeMode(Mode.About)}>about</a>
                 <a onClick={() => changeMode(Mode.Projects)}>projects</a>
                 <a href="https://github.com/DominikMat">github</a>
-                <a href="/CV_DominikMat.pdf"> -cv-</a>
+                <a href="/dominik-home/CV_DominikMat.pdf"> -cv-</a>
               </div> : null }
 
           { currentMode == Mode.About ? 
@@ -71,6 +71,8 @@ const Navigation: React.FC = () => {
                                                 <div className="project-info">
 
                                                     <h1> [{i+1}] {project.title} </h1>
+                                                    <p> {project.description} </p>
+                                                    <br/>
                                                     <p> {project.details} </p>
                                                     
                                                     { project.startDate != project.endDate ? (
@@ -125,7 +127,7 @@ const Navigation: React.FC = () => {
                         <ImageGallery 
                             items={ProjectData.at(selectedProject)?.images}
                             projectTitle={ProjectData.at(selectedProject)?.title}
-                            targetHeight={lineHeight}
+                            aspectMult={ProjectData.at(selectedProject)?.galleryAspectMult}
                         />
                     </div>
                     

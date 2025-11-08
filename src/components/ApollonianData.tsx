@@ -1,6 +1,5 @@
-import {CircleData} from './types'
+import { CircleData } from './types';
 
-const gasketCircleRaduisMultiplier = 1;
 
 // depth 4
 export const AppollonianGasketCircles: CircleData[] = [
