@@ -1,20 +1,19 @@
 import { useState } from 'react';
 import { ProjectData } from './ProjectData';
-import { Carousel, Image } from 'antd';
 import './Navigation.css'; 
 import ImageGallery from './ImageGallery';
 
 const Navigation: React.FC = () => {
   enum Mode { Default, About, Projects };
   const [currentMode, setMode] = useState<Mode>(Mode.Default);
-  const [lineHeight, setLineHeight] = useState<number>(300);
+  const [lineHeight, setLineHeight] = useState<number>(250);
   const [selectedProject, setSelectedProject] = useState<number>(0);
   
     function changeMode(newMode: Mode) {
         setMode(newMode);
         switch (newMode) {
-            case Mode.Default: setLineHeight(300); break;
-            case Mode.About: setLineHeight(220); break;
+            case Mode.Default: setLineHeight(250); break;
+            case Mode.About: setLineHeight(230); break;
             case Mode.Projects: setLineHeight(ProjectData.length*132.5); break;
         }
     }
@@ -47,15 +46,15 @@ const Navigation: React.FC = () => {
                 <a onClick={() => changeMode(Mode.About)}>about</a>
                 <a onClick={() => changeMode(Mode.Projects)}>projects</a>
                 <a href="https://github.com/DominikMat">github</a>
-                <a href="/dominik-home/CV_DominikMat.pdf"> -cv-</a>
+                {/* <a href="/dominik-home/CV_DominikMat.pdf"> -cv-</a> */}
               </div> : null }
 
           { currentMode == Mode.About ? 
               <div className="about-textbox">
-                <p> hello im dominik </p>
-                <p> hello im dominik </p>
-                <p> hello im dominik </p>
-                <p> hello im dominik </p>
+                <p> hello internet! </p>
+                <p> I'm Dominik, I like </p>
+                <p> making simulations & </p>
+                <p> graphics programming :) </p>
               </div> : null }
 
           { currentMode == Mode.Projects ? 
@@ -128,6 +127,7 @@ const Navigation: React.FC = () => {
                             items={ProjectData.at(selectedProject)?.images}
                             projectTitle={ProjectData.at(selectedProject)?.title}
                             aspectMult={ProjectData.at(selectedProject)?.galleryAspectMult}
+                            projectId={selectedProject}
                         />
                     </div>
                     

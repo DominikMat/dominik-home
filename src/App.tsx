@@ -1,4 +1,3 @@
-import React from 'react';
 import Navigation from './components/Navigation';
 import Planet from './components/Planet';
 import * as settings from './components/SimulationSettings';
@@ -12,7 +11,7 @@ function App() {
       <Planet 
         size={settings.CANVAS_SIDE_LEN}
         positionX="25vw"
-        positionY="-25vh"
+        positionY="0vh"
       />
 
     </div>

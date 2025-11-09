@@ -1,9 +1,7 @@
 // useMouseHandler.ts
 
-import { useRef, useEffect, RefObject, useState, useCallback } from 'react';
-import * as settings from './SimulationSettings'; 
-import { CircleData, MouseData, MouseRefs} from './types'
-import { click } from '@testing-library/user-event/dist/click';
+import { useRef, useEffect, RefObject } from 'react';
+import { CircleData, MouseRefs} from './types'
 
 // Zmieniamy logikę w hooku:
 export const useMouseHandler = (
@@ -14,7 +12,7 @@ export const useMouseHandler = (
 
     // Istniejące Stany (do symulacji SPH)
     const mousePosRef = useRef({ x: 0, y: 0 });
-    const mouseVelRef = useRef({ vx: 0, vy: 0 });
+    const mouseVelRef = useRef({ x: 0, y: 0 });
 
     const clickCircle = useRef<CircleData>({ x: 0, y: 0, r: 0 });
     const isMousePressed = useRef(false); // Ref zamiast lokalnej let
@@ -25,12 +23,11 @@ export const useMouseHandler = (
             return; 
         }
 
-        const DELTA_TIME_INV = 1 / settings.DELTA_TIME; 
         const updateMouseData = (mouseX: number, mouseY: number) => {
             const prevX = mousePosRef.current.x;
             const prevY = mousePosRef.current.y;
-            mouseVelRef.current.vx = (mouseX - prevX) * DELTA_TIME_INV * 0.01; 
-            mouseVelRef.current.vy = (mouseY - prevY) * DELTA_TIME_INV * 0.01;
+            mouseVelRef.current.x = (mouseX - prevX);
+            mouseVelRef.current.y = (mouseY - prevY);
             mousePosRef.current.x = mouseX;
             mousePosRef.current.y = mouseY;
         };
@@ -64,6 +61,7 @@ export const useMouseHandler = (
         const onMouseUp = (event: MouseEvent) => {
             if (isMousePressed.current) {
                 isMousePressed.current = false;
+
                 onMouseRelease(clickCircle.current);
                 clickCircle.current.x = 0;
                 clickCircle.current.y = 0;
@@ -71,23 +69,25 @@ export const useMouseHandler = (
             }
         };
 
-        window.addEventListener('mousedown', onMouseDown);
+        canvas.addEventListener('mousedown', onMouseDown);
         window.addEventListener('mouseup', onMouseUp);
         
         return () => {
             canvas.removeEventListener('mousemove', handleMouseMove);
-            window.removeEventListener('mousedown', onMouseDown);
+            canvas.removeEventListener('mousedown', onMouseDown);
             window.removeEventListener('mouseup', onMouseUp);
         };
     }, [canvasRef, isRunning]);
 
     return { 
-        mouseData: {
-            vx: mouseVelRef.current.vx,
-            vy: mouseVelRef.current.vy,
-            px: mousePosRef.current.x,
-            py: mousePosRef.current.y,
-        },
+        // mouseData: {
+        //     vx: mouseVelRef.current.vx,
+        //     vy: mouseVelRef.current.vy,
+        //     px: mousePosRef.current.x,
+        //     py: mousePosRef.current.y,
+        // },
+        mousePosRef,
+        mouseVelRef,
         isMousePressed,
         clickCircle
     };

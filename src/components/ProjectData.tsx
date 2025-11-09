@@ -21,8 +21,6 @@ export interface ProjectInfo {
     startDate: string;
     endDate:string;
     description: string;
-    image1: ImageData;
-    image2: ImageData;
     images: ImageData[];
     details: string;
     stats: StatInfo[];
@@ -38,8 +36,6 @@ export const ProjectData: ProjectInfo[] = [
     startDate: '2025',
     endDate: '2025',
     description: 'a website to nicley display all the amazing things Ive done',
-    image1: { path: '/dominik-home/images/portfolio/main.png', aspect: 1.817734 },
-    image2: { path: '/dominik-home/images/portfolio/art-2.png', aspect: 1.22155 },
     images: [
         { path: '/dominik-home/images/portfolio/main.png', aspect: 1.817734 },
         { path: '/dominik-home/images/portfolio/full.png', aspect: 2.06028 },
@@ -65,6 +61,7 @@ export const ProjectData: ProjectInfo[] = [
     links: [
         {title: "This site git repo", url:'https://github.com/DominikMat/dominik-home.git', filePath:''},
         {title: "Old portfolio git repo", url:'https://github.com/DominikMat/portfolio_website.git', filePath:''},
+        {title: "OLD SITE: https://dominikmat.github.io/portfolio_website/", url:'https://dominikmat.github.io/portfolio_website/', filePath:''},
     ],
         galleryAspectMult: 12,
     },
@@ -75,8 +72,6 @@ export const ProjectData: ProjectInfo[] = [
     startDate: '2025',
     endDate: '2025',
     description: 'an app to automatically solve Rubiks cubes, and show moves and animations',
-    image1: { path: '/dominik-home/images/rubiks/app.png', aspect: 1.700141 },
-    image2: { path: '/dominik-home/images/rubiks/rubiks-logo.png', aspect: 0.966038 },
     images: [
         { path: '/dominik-home/images/rubiks/rubiks-logo.png', aspect: 0.966038 },
         { path: '/dominik-home/images/rubiks/app.png', aspect: 1.700141 },
@@ -103,8 +98,6 @@ export const ProjectData: ProjectInfo[] = [
     startDate: '2024',
     endDate: '2024',
     description: 'a school project website, mock online shop',
-    image1: { path: '/dominik-home/images/online_shop/produkty.png', aspect: 1.331849 },
-    image2: { path: '/dominik-home/images/online_shop/logo.png', aspect: 3.690909 },
     images: [
         { path: '/dominik-home/images/online_shop/logo.png', aspect: 3.690909 },
         { path: '/dominik-home/images/online_shop/homepage.png', aspect: 2.055734 },
@@ -132,8 +125,6 @@ export const ProjectData: ProjectInfo[] = [
     startDate: '2024',
     endDate: '2024',
     description: 'a school project website, displays constallation with star info',
-    image1: { path: '/dominik-home/images/stargaze-site/main_site-2.png', aspect: 1.789346 },
-    image2: { path: '/dominik-home/images/stargaze-site/main_site.png', aspect: 2.045016 },
     images: [
         { path: '/dominik-home/images/stargaze-site/main_site-2.png', aspect: 1.789346 },
         { path: '/dominik-home/images/stargaze-site/main_site.png', aspect: 2.045016 },
@@ -162,8 +153,6 @@ export const ProjectData: ProjectInfo[] = [
     startDate: '2024',
     endDate: '2024',
     description: 'a school project app, simulates grazing animals with genetic code',
-    image1: { path: '/dominik-home/images/evolution/sim.png', aspect: 1.915301 },
-    image2: { path: '/dominik-home/images/evolution/evo-logo.png', aspect: 1.189293 },
     images: [
         { path: '/dominik-home/images/evolution/evo-logo.png', aspect: 1.189293 },
         { path: '/dominik-home/images/evolution/sim.png', aspect: 1.915301 },
@@ -188,8 +177,6 @@ export const ProjectData: ProjectInfo[] = [
     startDate: '2022-03-29',
     endDate: '2022-04-15',
     description: 'canonballs versus giraffe',
-    image1: { path: '/dominik-home/images/giraffe/giraffe  (1).png', aspect: 1.143737 },
-    image2: { path: '/dominik-home/images/giraffe/giraffe  (2).png', aspect: 1.230519 },
     images: [
         { path: '/dominik-home/images/giraffe/giraffe  (1).png', aspect: 1.143737 },
         { path: '/dominik-home/images/giraffe/giraffe  (2).png', aspect: 1.230519 },
@@ -232,8 +219,8 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2022',
         endDate: '2022',
         description: 'a miniature and motorized chinese gong to wake me up',
-        image1: { path: '/dominik-home/images/gong/DSC_0753.JPG', aspect: 1.772512 },
-        image2: { path: '/dominik-home/images/gong/DSC_0705.JPG', aspect: 1.772512 },
+
+
         images: [
             { path: '/dominik-home/images/gong/DSC_0705.JPG', aspect: 1.772512 },
             { path: '/dominik-home/images/gong/DSC_0753.JPG', aspect: 1.772512 },
@@ -270,8 +257,6 @@ export const ProjectData: ProjectInfo[] = [
     startDate: '2021-12-10',
     endDate: '2022-XX-XX',
     description: 'fluid simulation, cell-based and SPH',
-    image1: { path: '/dominik-home/images/fluid/fluid (5).png', aspect: 1.628846 },
-    image2: { path: '/dominik-home/images/fluid/fluid (9).png', aspect: 1.646288 },
     images: [
         { path: '/dominik-home/images/fluid/fluid (5).png', aspect: 1.628846 },
         { path: '/dominik-home/images/fluid/fluid (6).png', aspect: 1.646341 },
@@ -308,8 +293,6 @@ export const ProjectData: ProjectInfo[] = [
     startDate: '2021-11-27',
     endDate: '2021-11-27',
     description: 'Simulation of squishy objects',
-    image1: { path: '/dominik-home/images/soft/softbody-1.png', aspect: 1.394737 },
-    image2: { path: '/dominik-home/images/soft/softbody-2.png', aspect: 0.955457 },
     images: [
         { path: '/dominik-home/images/soft/softbody-1.png', aspect: 1.394737 },
         { path: '/dominik-home/images/soft/softbody-2.png', aspect: 0.955457 },
@@ -338,8 +321,8 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2022-05-14',
         endDate: '2022-07-06',
         description: 'a controllable led array to show constallations',
-        image1: { path: '/dominik-home/images/disquiet/DSC_0572.JPG', aspect: 1.773006 },
-        image2: { path: '/dominik-home/images/disquiet/DSC_0578.JPG', aspect: 1.773006 },
+
+
         images: [
             { path: '/dominik-home/images/disquiet/DSC_0569.JPG', aspect: 1.773006 },
             { path: '/dominik-home/images/disquiet/DSC_0572.JPG', aspect: 1.773006 },
@@ -384,8 +367,8 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2022',
         endDate: '2022',
         description: 'a small project to gaze upon the beauty of chaos',
-        image1: { path: '/dominik-home/images/chaos/Chaos Pendulum (1).jpg', aspect: 0.75 },
-        image2: { path: '/dominik-home/images/chaos/Chaos_Pendulum_(2).jpg', aspect: 1.202655 },
+
+
         images: [
             { path: '/dominik-home/images/chaos/Chaos Pendulum (1).jpg', aspect: 0.75 },
             { path: '/dominik-home/images/chaos/Chaos_Pendulum_(2).jpg', aspect: 1.202655 },
@@ -413,8 +396,8 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2021-04-15',
         endDate: '2021-04-24',
         description: 'playing around with newtonian gravity simulations',
-        image1: { path: '/dominik-home/images/gravity/gravity (3).png', aspect: 0.95679 },
-        image2: { path: '/dominik-home/images/gravity/gravity (2).JPG', aspect: 1.772512 },
+
+
         images: [
             { path: '/dominik-home/images/gravity/gravity (2).png', aspect: 1.014806 },
             { path: '/dominik-home/images/gravity/gravity (3).png', aspect: 0.95679 },
@@ -446,8 +429,8 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2021-07-02',
         endDate: '2021-08-12',
         description: 'game(s) about slicing 3d objects',
-        image1: { path: '/dominik-home/images/polygon/polygon (1).png', aspect: 0.999092 },
-        image2: { path: '/dominik-home/images/polygon/polygon (2).png', aspect: 1.151125 },
+
+
         images: [
             { path: '/dominik-home/images/polygon/polygon (1).png', aspect: 0.999092 },
             { path: '/dominik-home/images/polygon/polygon (2).png', aspect: 1.151125 },
@@ -478,8 +461,8 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2021-11-19',
         endDate: '2021-12-06',
         description: 'a wooden christmas tree that playes music and changes lights',
-        image1: { path: '/dominik-home/images/dos/DSC_0270.JPG', aspect: 1.772512 },
-        image2: { path: '/dominik-home/images/dos/_20211125_101059.JPG', aspect: 0.633146 },
+
+
         images: [
             { path: '/dominik-home/images/dos/_20211119_002240.JPG', aspect: 1.341279 },
             { path: '/dominik-home/images/dos/_20211121_132457.JPG', aspect: 0.731239 },
@@ -523,8 +506,8 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2022-12',
         endDate: '2023-01',
         description: 'a self-build calculator, do NOT divide by zero',
-        image1: { path: '/dominik-home/images/calc/IMG_20230125_174154.jpg', aspect: 0.75 },
-        image2: { path: '/dominik-home/images/calc/IMG_20221227_004918.jpg', aspect: 0.75 },
+
+
         images: [
             { path: '/dominik-home/images/calc/IMG_20221203_020153.jpg', aspect: 0.75 },
             { path: '/dominik-home/images/calc/IMG_20221204_231024.jpg', aspect: 0.75 },
@@ -559,8 +542,8 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2021-09',
         endDate: '2021-09',
         description: 'playing around with particles',
-        image1: { path: '/dominik-home/images/particles/Particles VII.JPG', aspect: 1.668574 },
-        image2: { path: '/dominik-home/images/particles/Particles V.JPG', aspect: 1.772512 },
+
+
         images: [
             { path: '/dominik-home/images/particles/Particles V.JPG', aspect: 1.772512 },
             { path: '/dominik-home/images/particles/Particles VII.JPG', aspect: 1.668574 },
@@ -584,8 +567,8 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2022-05',
         endDate: '2022-05',
         description: 'a game about fishing in the future',
-        image1: { path: '/dominik-home/images/fishing/fishing (6).png', aspect: 1.690167 },
-        image2: { path: '/dominik-home/images/fishing/fishing (3).png', aspect: 1.52349 },
+
+
         images: [
             { path: '/dominik-home/images/fishing/fishing (1).png', aspect: 1.261364 },
             { path: '/dominik-home/images/fishing/fishing (2).png', aspect: 2.05 },
@@ -622,8 +605,8 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2022-10',
         endDate: '2022-10',
         description: 'a model of a concrete bridge',
-        image1: { path: '/dominik-home/images/chasm/Crossed Chasm (5).JPG', aspect: 0.763628 },
-        image2: { path: '/dominik-home/images/chasm/Crossed Chasm (4).JPG', aspect: 0.869655 },
+
+
         images: [
             { path: '/dominik-home/images/chasm/Crossed Chasm (1).JPG', aspect: 1.772512 },
             { path: '/dominik-home/images/chasm/Crossed Chasm (2).JPG', aspect: 1.772512 },
@@ -653,8 +636,8 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2020-12',
         endDate: '2020-12',
         description: 'a styrofoam model of a confined tent',
-        image1: { path: '/dominik-home/images/confinement/Confinement (9).JPG', aspect: 1.772512 },
-        image2: { path: '/dominik-home/images/confinement/Confinement (2).JPG', aspect: 2.53821 },
+
+
         images: [
             { path: '/dominik-home/images/confinement/Confinement (0).png', aspect: 2.102941 },
             { path: '/dominik-home/images/confinement/Confinement (1).JPG', aspect: 3.912709 },
@@ -693,8 +676,8 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2020-08-16',
         endDate: '2020-11-16',
         description: 'first complete game, a typical pixel-art platformer (with guns obviously)',
-        image1: { path: '/dominik-home/images/scalar/scalar (2).png', aspect: 1.09375 },
-        image2: { path: '/dominik-home/images/scalar/scalar (6).png', aspect: 1.582245 },
+
+
         images: [
             { path: '/dominik-home/images/scalar/scalar (1).png', aspect: 1.94959 },
             { path: '/dominik-home/images/scalar/scalar (2).png', aspect: 1.09375 },
@@ -725,8 +708,8 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2021-05',
         endDate: '2021-05',
         description: 'a game console with a matrix display',
-        image1: { path: '/dominik-home/images/daes/DAES (7).JPG', aspect: 1.772512 },
-        image2: { path: '/dominik-home/images/daes/DAES (10).JPG', aspect: 1.772512 },
+
+
         images: [
             { path: '/dominik-home/images/daes/DAES (1).jpg', aspect: 1.772512 },
             { path: '/dominik-home/images/daes/DAES (2).jpg', aspect: 1.772512 },
@@ -753,5 +736,39 @@ export const ProjectData: ProjectInfo[] = [
         ],
         links: [],
         galleryAspectMult: 4,
+    },
+        // post guide
+    {
+        title: 'The Post Guide',
+        tag: 'Computer Game',
+        startDate: '2021-03-07',
+        endDate: '2021-03-31',
+        description: 'playing around with procedural generation',
+
+
+        images: [
+            { path: '/dominik-home/images/post/post (1).png', aspect: 1.0 },
+            { path: '/dominik-home/images/post/post (2).png', aspect: 1.757709 },
+            { path: '/dominik-home/images/post/post (3).png', aspect: 1.798371 },
+            { path: '/dominik-home/images/post/post (1).JPG', aspect: 1.445916 },
+            { path: '/dominik-home/images/post/post (4).png', aspect: 1.777778 },
+        ],
+        details: `
+        Little game to play around with procedurally generated terrain,
+        complete with multiple biomes, random trees, rocks, lakes, oceans,
+        volcanoes, and so on.
+
+        Also a inverse kinematics system for procedural walking.
+
+        Game is jank though xd.
+        `,
+        stats: [
+            {label: "Time spent", value: "3 weeks and 3 days"}
+        ],
+        links: [
+            {title: "The Post Guide PC version", url:'https://drive.google.com/file/d/1BYKGIjRZb4ZTDGTTBrvpA7a30rOLetNw/view?usp=sharing', filePath:''},
+            {title: "The Post Guide Android version", url:'https://drive.google.com/file/d/1m73LjLtqI6OTcIL6LBKIRzzQVNenNR37/view?usp=sharing', filePath:''}
+        ],
+        galleryAspectMult: 20
     },
 ]

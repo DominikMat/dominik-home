@@ -1,10 +1,9 @@
 // useGasketSetup.ts
 
-import { useCallback, useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import { AppollonianGasketCircles } from './ApollonianData';
-import { GasketProps, CircleData, GasketSetupResult } from './types';
+import { GasketProps, CircleData } from './types';
 import * as settings from './SimulationSettings';
-import { App } from 'antd';
 
 const TWO_PI = Math.PI*2;
 

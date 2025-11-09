@@ -230,8 +230,15 @@
 }
 
 .gallery-img {
+    overflow: hidden;
+    border-radius: 8px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4;
     opacity: 0;
-    /* animation: enterPicture 1.5s easy-out forward; */
+    animation: enterPicture 1.5s ease-out forwards;
 }
 
 /* =================================================== */

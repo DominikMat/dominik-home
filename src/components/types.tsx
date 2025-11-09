@@ -39,8 +39,14 @@ export type MouseData = {
     py: number;
 };
 
+type Point = {
+    x: number;
+    y: number;
+};
+
 export type MouseRefs = {
-    mouseData: MouseData;
+    mousePosRef: RefObject<Point>;
+    mouseVelRef: RefObject<Point>;
     clickCircle: RefObject<CircleData>;
     isMousePressed: RefObject<boolean>;
 };
