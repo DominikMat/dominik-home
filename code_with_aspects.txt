@@ -21,12 +21,13 @@ export interface ProjectInfo {
     startDate: string;
     endDate:string;
     description: string;
-    image1: string;
-    image2: string;
-    images: string[];
+    image1: ImageData;
+    image2: ImageData;
+    images: ImageData[];
     details: string;
     stats: StatInfo[];
     links: LinkInfo[];
+    galleryAspectMult: number;
 }
 
 export const ProjectData: ProjectInfo[] = [
@@ -37,15 +38,15 @@ export const ProjectData: ProjectInfo[] = [
     startDate: '2025',
     endDate: '2025',
     description: 'a website to nicley display all the amazing things Ive done',
-    image1: { path: '/dominik-home/images/portfolio/main.png', aspect: 1.817734 },
-    image2: { path: '/dominik-home/images/portfolio/art-2.png', aspect: 1.22155 },
+    image1: { path: { path: '/dominik-home/images/portfolio/main.png', aspect: 1.817734 }, aspect: 1.817734 },
+    image2: { path: { path: '/dominik-home/images/portfolio/art-2.png', aspect: 1.22155 }, aspect: 1.22155 },
     images: [
-        { path: '/dominik-home/images/portfolio/main.png', aspect: 1.817734 },
-        { path: '/dominik-home/images/portfolio/full.png', aspect: 2.06028 },
-        { path: '/dominik-home/images/portfolio/popup.png', aspect: 2.26087 },
-        { path: '/dominik-home/images/portfolio/art.png', aspect: 2.094276 },
-        { path: '/dominik-home/images/portfolio/art-2.png', aspect: 1.22155 },
-        { path: '/dominik-home/images/portfolio/work-cards.png', aspect: 1.989899 },
+        { path: { path: '/dominik-home/images/portfolio/main.png', aspect: 1.817734 }, aspect: 1.817734 },
+        { path: { path: '/dominik-home/images/portfolio/full.png', aspect: 2.06028 }, aspect: 2.06028 },
+        { path: { path: '/dominik-home/images/portfolio/popup.png', aspect: 2.26087 }, aspect: 2.26087 },
+        { path: { path: '/dominik-home/images/portfolio/art.png', aspect: 2.094276 }, aspect: 2.094276 },
+        { path: { path: '/dominik-home/images/portfolio/art-2.png', aspect: 1.22155 }, aspect: 1.22155 },
+        { path: { path: '/dominik-home/images/portfolio/work-cards.png', aspect: 1.989899 }, aspect: 1.989899 },
     ],
     details: `
         project cards with working popups for details,
@@ -62,8 +63,10 @@ export const ProjectData: ProjectInfo[] = [
     stats: [
     ],
     links: [
-        {title: "Github Repository", url:'https://github.com/DominikMat/dominik-home.git', filePath:''},
-    ]
+        {title: "This site git repo", url:'https://github.com/DominikMat/dominik-home.git', filePath:''},
+        {title: "Old portfolio git repo", url:'https://github.com/DominikMat/portfolio_website.git', filePath:''},
+    ],
+        galleryAspectMult: 12,
     },
     // rubiks
     {
@@ -72,13 +75,13 @@ export const ProjectData: ProjectInfo[] = [
     startDate: '2025',
     endDate: '2025',
     description: 'an app to automatically solve Rubiks cubes, and show moves and animations',
-    image1: { path: '/dominik-home/images/rubiks/app.png', aspect: 1.700141 },
-    image2: { path: '/dominik-home/images/rubiks/rubiks-logo.png', aspect: 0.966038 },
+    image1: { path: { path: '/dominik-home/images/rubiks/app.png', aspect: 1.700141 }, aspect: 1.700141 },
+    image2: { path: { path: '/dominik-home/images/rubiks/rubiks-logo.png', aspect: 0.966038 }, aspect: 0.966038 },
     images: [
-        { path: '/dominik-home/images/rubiks/rubiks-logo.png', aspect: 0.966038 },
-        { path: '/dominik-home/images/rubiks/app.png', aspect: 1.700141 },
-        { path: '/dominik-home/images/rubiks/py-logo.png', aspect: 1.0 },
-        { path: '/dominik-home/images/rubiks/image-creator.png', aspect: 1.700141 },
+        { path: { path: '/dominik-home/images/rubiks/rubiks-logo.png', aspect: 0.966038 }, aspect: 0.966038 },
+        { path: { path: '/dominik-home/images/rubiks/app.png', aspect: 1.700141 }, aspect: 1.700141 },
+        { path: { path: '/dominik-home/images/rubiks/py-logo.png', aspect: 1.0 }, aspect: 1.0 },
+        { path: { path: '/dominik-home/images/rubiks/image-creator.png', aspect: 1.700141 }, aspect: 1.700141 },
     ],
     details: `
         build with Python and OpenGL rendering,
@@ -90,7 +93,8 @@ export const ProjectData: ProjectInfo[] = [
     ],
     links: [
         {title: "Github Repository", url:'https://github.com/filip-zolnierczyk/PythonCubeProject.git', filePath:''},
-    ]
+    ],
+        galleryAspectMult: 12,
     },
     // online shop
     {
@@ -99,15 +103,15 @@ export const ProjectData: ProjectInfo[] = [
     startDate: '2024',
     endDate: '2024',
     description: 'a school project website, mock online shop',
-    image1: { path: '/dominik-home/images/online_shop/produkty.png', aspect: 1.331849 },
-    image2: { path: '/dominik-home/images/online_shop/logo.png', aspect: 3.690909 },
+    image1: { path: { path: '/dominik-home/images/online_shop/produkty.png', aspect: 1.331849 }, aspect: 1.331849 },
+    image2: { path: { path: '/dominik-home/images/online_shop/logo.png', aspect: 3.690909 }, aspect: 3.690909 },
     images: [
-        { path: '/dominik-home/images/online_shop/logo.png', aspect: 3.690909 },
-        { path: '/dominik-home/images/online_shop/homepage.png', aspect: 2.055734 },
-        { path: '/dominik-home/images/online_shop/produkty.png', aspect: 1.331849 },
-        { path: '/dominik-home/images/online_shop/recenzje.png', aspect: 1.902606 },
-        { path: '/dominik-home/images/online_shop/logowanie.png', aspect: 1.02 },
-        { path: '/dominik-home/images/online_shop/tech.png', aspect: 3.322807 },
+        { path: { path: '/dominik-home/images/online_shop/logo.png', aspect: 3.690909 }, aspect: 3.690909 },
+        { path: { path: '/dominik-home/images/online_shop/homepage.png', aspect: 2.055734 }, aspect: 2.055734 },
+        { path: { path: '/dominik-home/images/online_shop/produkty.png', aspect: 1.331849 }, aspect: 1.331849 },
+        { path: { path: '/dominik-home/images/online_shop/recenzje.png', aspect: 1.902606 }, aspect: 1.902606 },
+        { path: { path: '/dominik-home/images/online_shop/logowanie.png', aspect: 1.02 }, aspect: 1.02 },
+        { path: { path: '/dominik-home/images/online_shop/tech.png', aspect: 3.322807 }, aspect: 3.322807 },
     ],
     details: `
         a school project website, average online shopping experience
@@ -118,7 +122,8 @@ export const ProjectData: ProjectInfo[] = [
     ],
     links: [
         {title: "Github Repository", url:'https://github.com/AdrianSuliga/OnlineShop.git', filePath:''},
-    ]
+    ],
+        galleryAspectMult: 12,
     },
     // stargazing
     {
@@ -127,15 +132,15 @@ export const ProjectData: ProjectInfo[] = [
     startDate: '2024',
     endDate: '2024',
     description: 'a school project website, displays constallation with star info',
-    image1: { path: '/dominik-home/images/stargaze-site/main_site-2.png', aspect: 1.789346 },
-    image2: { path: '/dominik-home/images/stargaze-site/main_site.png', aspect: 2.045016 },
+    image1: { path: { path: '/dominik-home/images/stargaze-site/main_site-2.png', aspect: 1.789346 }, aspect: 1.789346 },
+    image2: { path: { path: '/dominik-home/images/stargaze-site/main_site.png', aspect: 2.045016 }, aspect: 2.045016 },
     images: [
-        { path: '/dominik-home/images/stargaze-site/main_site-2.png', aspect: 1.789346 },
-        { path: '/dominik-home/images/stargaze-site/main_site.png', aspect: 2.045016 },
-        { path: '/dominik-home/images/stargaze-site/gallery.png', aspect: 1.647189 },
-        { path: '/dominik-home/images/stargaze-site/contact-form.png', aspect: 1.542697 },
-        { path: '/dominik-home/images/stargaze-site/drawing.jpg', aspect: 1.466428 },
-        { path: '/dominik-home/images/stargaze-site/drawing-2.jpg', aspect: 1.454868 },
+        { path: { path: '/dominik-home/images/stargaze-site/main_site-2.png', aspect: 1.789346 }, aspect: 1.789346 },
+        { path: { path: '/dominik-home/images/stargaze-site/main_site.png', aspect: 2.045016 }, aspect: 2.045016 },
+        { path: { path: '/dominik-home/images/stargaze-site/gallery.png', aspect: 1.647189 }, aspect: 1.647189 },
+        { path: { path: '/dominik-home/images/stargaze-site/contact-form.png', aspect: 1.542697 }, aspect: 1.542697 },
+        { path: { path: '/dominik-home/images/stargaze-site/drawing.jpg', aspect: 1.466428 }, aspect: 1.466428 },
+        { path: { path: '/dominik-home/images/stargaze-site/drawing-2.jpg', aspect: 1.454868 }, aspect: 1.454868 },
     ],
     details: `
         a school project website, displays constallation with star info
@@ -147,7 +152,8 @@ export const ProjectData: ProjectInfo[] = [
     ],
     links: [
         {title: "Github Repository (under projekt1)", url:'https://github.com/DominikMat/Apki-Internetowe.git', filePath:''},
-    ]
+    ],
+        galleryAspectMult: 12,
     },
     // evolution
     {
@@ -156,12 +162,12 @@ export const ProjectData: ProjectInfo[] = [
     startDate: '2024',
     endDate: '2024',
     description: 'a school project app, simulates grazing animals with genetic code',
-    image1: { path: '/dominik-home/images/evolution/sim.png', aspect: 1.915301 },
-    image2: { path: '/dominik-home/images/evolution/evo-logo.png', aspect: 1.189293 },
+    image1: { path: { path: '/dominik-home/images/evolution/sim.png', aspect: 1.915301 }, aspect: 1.915301 },
+    image2: { path: { path: '/dominik-home/images/evolution/evo-logo.png', aspect: 1.189293 }, aspect: 1.189293 },
     images: [
-        { path: '/dominik-home/images/evolution/evo-logo.png', aspect: 1.189293 },
-        { path: '/dominik-home/images/evolution/sim.png', aspect: 1.915301 },
-        { path: '/dominik-home/images/evolution/params.png', aspect: 1.129274 },
+        { path: { path: '/dominik-home/images/evolution/evo-logo.png', aspect: 1.189293 }, aspect: 1.189293 },
+        { path: { path: '/dominik-home/images/evolution/sim.png', aspect: 1.915301 }, aspect: 1.915301 },
+        { path: { path: '/dominik-home/images/evolution/params.png', aspect: 1.129274 }, aspect: 1.129274 },
     ],
     details: `
         a school project app, simulates grazing animals with genetic code.
@@ -172,7 +178,8 @@ export const ProjectData: ProjectInfo[] = [
     ],
     links: [
         {title: "Github Repository", url:'https://github.com/tomaszmol/projekt_PO.git', filePath:''},
-    ]
+    ],
+        galleryAspectMult: 12,
     },
     // giraffean
     {
@@ -181,13 +188,13 @@ export const ProjectData: ProjectInfo[] = [
     startDate: '2022-03-29',
     endDate: '2022-04-15',
     description: 'canonballs versus giraffe',
-    image1: { path: '/dominik-home/images/giraffe/giraffe  (1).png', aspect: 1.143737 },
-    image2: { path: '/dominik-home/images/giraffe/giraffe  (2).png', aspect: 1.230519 },
+    image1: { path: { path: '/dominik-home/images/giraffe/giraffe  (1).png', aspect: 1.143737 }, aspect: 1.143737 },
+    image2: { path: { path: '/dominik-home/images/giraffe/giraffe  (2).png', aspect: 1.230519 }, aspect: 1.230519 },
     images: [
-        { path: '/dominik-home/images/giraffe/giraffe  (1).png', aspect: 1.143737 },
-        { path: '/dominik-home/images/giraffe/giraffe  (2).png', aspect: 1.230519 },
-        { path: '/dominik-home/images/giraffe/giraffe  (3).png', aspect: 1.063425 },
-        { path: '/dominik-home/images/giraffe/giraffe  (1).JPG', aspect: 1.052953 },
+        { path: { path: '/dominik-home/images/giraffe/giraffe  (1).png', aspect: 1.143737 }, aspect: 1.143737 },
+        { path: { path: '/dominik-home/images/giraffe/giraffe  (2).png', aspect: 1.230519 }, aspect: 1.230519 },
+        { path: { path: '/dominik-home/images/giraffe/giraffe  (3).png', aspect: 1.063425 }, aspect: 1.063425 },
+        { path: { path: '/dominik-home/images/giraffe/giraffe  (1).JPG', aspect: 1.052953 }, aspect: 1.052953 },
     ],
     details: `
         Progress:
@@ -215,7 +222,8 @@ export const ProjectData: ProjectInfo[] = [
     links: [
         {title: "The Giraffen Campaign PC version", url:'https://drive.google.com/file/d/1h3rdz3KpPmPdXKzXBId05vOXWw41Er4M/view?usp=sharing', filePath:''},
         {title: "Devlog Videos (YT Playlist)", url:'https://www.youtube.com/playlist?list=PLJX6VUSvLT5RVY-xhGaSjj7B042wMYZIM', filePath:''}
-    ]
+    ],
+        galleryAspectMult: 12,
     },
     // gong
     {
@@ -224,16 +232,16 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2022',
         endDate: '2022',
         description: 'a miniature and motorized chinese gong to wake me up',
-        image1: { path: '/dominik-home/images/gong/DSC_0753.JPG', aspect: 1.772512 },
-        image2: { path: '/dominik-home/images/gong/DSC_0705.JPG', aspect: 1.772512 },
+        image1: { path: { path: '/dominik-home/images/gong/DSC_0753.JPG', aspect: 1.772512 }, aspect: 1.772512 },
+        image2: { path: { path: '/dominik-home/images/gong/DSC_0705.JPG', aspect: 1.772512 }, aspect: 1.772512 },
         images: [
-            { path: '/dominik-home/images/gong/DSC_0705.JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/gong/DSC_0753.JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/gong/Gong Alarm (1).jpg', aspect: 0.75 },
-            { path: '/dominik-home/images/gong/Gong Alarm (4).jpg', aspect: 1.333333 },
-            { path: '/dominik-home/images/gong/Gong Alarm (5).jpg', aspect: 1.333333 },
-            { path: '/dominik-home/images/gong/Gong Alarm (6).jpg', aspect: 0.75 },
-            'https://www.youtube.com/watch?v=zPBFU7ZbkVs',
+            { path: { path: '/dominik-home/images/gong/DSC_0705.JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/gong/DSC_0753.JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/gong/Gong Alarm (1).jpg', aspect: 0.75 }, aspect: 0.75 },
+            { path: { path: '/dominik-home/images/gong/Gong Alarm (4).jpg', aspect: 1.333333 }, aspect: 1.333333 },
+            { path: { path: '/dominik-home/images/gong/Gong Alarm (5).jpg', aspect: 1.333333 }, aspect: 1.333333 },
+            { path: { path: '/dominik-home/images/gong/Gong Alarm (6).jpg', aspect: 0.75 }, aspect: 0.75 },
+            { path: 'https://youtu.be/zPBFU7ZbkVs', aspect: 1.7777},
         ],
         details: `
         a miniature and motorized chinese gong to wake me up
@@ -252,7 +260,8 @@ export const ProjectData: ProjectInfo[] = [
         also the hammer is from a kalimba.
         `,
         stats: [],
-        links: []
+        links: [],
+        galleryAspectMult: 6,
     },
     // fluid sims
     {
@@ -261,18 +270,18 @@ export const ProjectData: ProjectInfo[] = [
     startDate: '2021-12-10',
     endDate: '2022-XX-XX',
     description: 'fluid simulation, cell-based and SPH',
-    image1: { path: '/dominik-home/images/fluid/fluid (5).png', aspect: 1.628846 },
-    image2: { path: '/dominik-home/images/fluid/fluid (9).png', aspect: 1.646288 },
+    image1: { path: { path: '/dominik-home/images/fluid/fluid (5).png', aspect: 1.628846 }, aspect: 1.628846 },
+    image2: { path: { path: '/dominik-home/images/fluid/fluid (9).png', aspect: 1.646288 }, aspect: 1.646288 },
     images: [
-        { path: '/dominik-home/images/fluid/fluid (5).png', aspect: 1.628846 },
-        { path: '/dominik-home/images/fluid/fluid (6).png', aspect: 1.646341 },
-        { path: '/dominik-home/images/fluid/fluid (7).png', aspect: 1.708861 },
-        { path: '/dominik-home/images/fluid/fluid (8).png', aspect: 1.815279 },
-        { path: '/dominik-home/images/fluid/fluid (9).png', aspect: 1.646288 },
-        { path: '/dominik-home/images/fluid/fluid (10).png', aspect: 1.111111 },
-        { path: '/dominik-home/images/fluid/DSC_0237.JPG', aspect: 1.772512 },
-        'https://youtu.be/8v7jRq7eyCQ',
-        'https://youtu.be/Ra7vjeXGca4',
+        { path: { path: '/dominik-home/images/fluid/fluid (5).png', aspect: 1.628846 }, aspect: 1.628846 },
+        { path: { path: '/dominik-home/images/fluid/fluid (6).png', aspect: 1.646341 }, aspect: 1.646341 },
+        { path: { path: '/dominik-home/images/fluid/fluid (7).png', aspect: 1.708861 }, aspect: 1.708861 },
+        { path: { path: '/dominik-home/images/fluid/fluid (8).png', aspect: 1.815279 }, aspect: 1.815279 },
+        { path: { path: '/dominik-home/images/fluid/fluid (9).png', aspect: 1.646288 }, aspect: 1.646288 },
+        { path: { path: '/dominik-home/images/fluid/fluid (10).png', aspect: 1.111111 }, aspect: 1.111111 },
+        { path: { path: '/dominik-home/images/fluid/DSC_0237.JPG', aspect: 1.772512 }, aspect: 1.772512 },
+        { path: 'https://youtu.be/8v7jRq7eyCQ', aspect: 1.7777},
+        { path: 'https://youtu.be/Ra7vjeXGca4', aspect: 1.7777},
     ],
     details: `
     First I created a cell based simulation in Unity, but it was slow,
@@ -289,7 +298,8 @@ export const ProjectData: ProjectInfo[] = [
         {title: "Fluid Engine Videos (YT Playlist)", url:'https://www.youtube.com/playlist?list=PLJX6VUSvLT5RnLE8cEcDfddoYloI3ZBgT', filePath:''},
         {title: "SPH Fluid Videos (YT Playlist)", url:'https://www.youtube.com/playlist?list=PLJX6VUSvLT5RpJeCM139PUpdwGMB6E-0r', filePath:''},
         {title: "SPH Fluid Simulation - HTML", url:'https://drive.google.com/file/d/1X7boNwWbTHN7smb6Bz7bNeCsBvWzxY0O/view?usp=sharing', filePath:''},
-    ]
+    ],
+        galleryAspectMult: 10,
     },
     // softbodies
     {
@@ -298,14 +308,14 @@ export const ProjectData: ProjectInfo[] = [
     startDate: '2021-11-27',
     endDate: '2021-11-27',
     description: 'Simulation of squishy objects',
-    image1: { path: '/dominik-home/images/soft/softbody-1.png', aspect: 1.394737 },
-    image2: { path: '/dominik-home/images/soft/softbody-2.png', aspect: 0.955457 },
+    image1: { path: { path: '/dominik-home/images/soft/softbody-1.png', aspect: 1.394737 }, aspect: 1.394737 },
+    image2: { path: { path: '/dominik-home/images/soft/softbody-2.png', aspect: 0.955457 }, aspect: 0.955457 },
     images: [
-        { path: '/dominik-home/images/soft/softbody-1.png', aspect: 1.394737 },
-        { path: '/dominik-home/images/soft/softbody-2.png', aspect: 0.955457 },
-        'https://youtu.be/jLjjc2Xi09k',
-        'https://youtu.be/Z3psJtYVMjo',
-        'https://youtu.be/1YUxuCOjEdw',
+        { path: { path: '/dominik-home/images/soft/softbody-1.png', aspect: 1.394737 }, aspect: 1.394737 },
+        { path: { path: '/dominik-home/images/soft/softbody-2.png', aspect: 0.955457 }, aspect: 0.955457 },
+        { path: 'https://youtu.be/jLjjc2Xi09k', aspect: 1.7777},
+        { path: 'https://youtu.be/Z3psJtYVMjo', aspect: 1.7777},
+        { path: 'https://youtu.be/1YUxuCOjEdw', aspect: 1.7777},
     ],
     details: `
     Simulation of squishy objects
@@ -318,7 +328,8 @@ export const ProjectData: ProjectInfo[] = [
         {title: "Softbody Simulation SFML - PC", url:'https://drive.google.com/file/d/1JsPKmjE6ILm1fNppHuHoclQEhjUEIPkf/view?usp=sharing', filePath:''},
         {title: "Softbody Simulation HTML - PC", url:'https://drive.google.com/file/d/1VMwr1ccoLVnojJbPXA4FvKxlqpe52lCn/view?usp=sharing', filePath:''},
         {title: "Abstract Softness - Android", url:'https://drive.google.com/file/d/1P7MzJqBDNhVHBO0WR_cFF6cDa7FZYd-s/view?usp=sharing', filePath:''},
-    ]
+    ],
+        galleryAspectMult: 20,
     },
     // disquiet
     {
@@ -327,24 +338,24 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2022-05-14',
         endDate: '2022-07-06',
         description: 'a controllable led array to show constallations',
-        image1: { path: '/dominik-home/images/disquiet/DSC_0572.JPG', aspect: 1.773006 },
-        image2: { path: '/dominik-home/images/disquiet/DSC_0578.JPG', aspect: 1.773006 },
+        image1: { path: { path: '/dominik-home/images/disquiet/DSC_0572.JPG', aspect: 1.773006 }, aspect: 1.773006 },
+        image2: { path: { path: '/dominik-home/images/disquiet/DSC_0578.JPG', aspect: 1.773006 }, aspect: 1.773006 },
         images: [
-            { path: '/dominik-home/images/disquiet/DSC_0569.JPG', aspect: 1.773006 },
-            { path: '/dominik-home/images/disquiet/DSC_0572.JPG', aspect: 1.773006 },
-            { path: '/dominik-home/images/disquiet/DSC_0574.JPG', aspect: 1.773006 },
-            { path: '/dominik-home/images/disquiet/DSC_0575.JPG', aspect: 1.773006 },
-            { path: '/dominik-home/images/disquiet/DSC_0577.JPG', aspect: 1.773006 },
-            { path: '/dominik-home/images/disquiet/DSC_0578.JPG', aspect: 1.773006 },
-            { path: '/dominik-home/images/disquiet/DSC_0584.JPG', aspect: 1.773006 },
-            { path: '/dominik-home/images/disquiet/DSC_0587.JPG', aspect: 1.773006 },
-            { path: '/dominik-home/images/disquiet/image (1).png', aspect: 1.929465 },
-            { path: '/dominik-home/images/disquiet/DSC_0629.JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/disquiet/DSC_0633.JPG', aspect: 1.772512 },
-            'https://youtu.be/EY59PGJ3V_k',
-            'https://youtu.be/t4FgBQqmSNA',
-            'https://youtu.be/cWjqUiSvsFg',
-            'https://youtu.be/CmKlTLSAyps',
+            { path: { path: '/dominik-home/images/disquiet/DSC_0569.JPG', aspect: 1.773006 }, aspect: 1.773006 },
+            { path: { path: '/dominik-home/images/disquiet/DSC_0572.JPG', aspect: 1.773006 }, aspect: 1.773006 },
+            { path: { path: '/dominik-home/images/disquiet/DSC_0574.JPG', aspect: 1.773006 }, aspect: 1.773006 },
+            { path: { path: '/dominik-home/images/disquiet/DSC_0575.JPG', aspect: 1.773006 }, aspect: 1.773006 },
+            { path: { path: '/dominik-home/images/disquiet/DSC_0577.JPG', aspect: 1.773006 }, aspect: 1.773006 },
+            { path: { path: '/dominik-home/images/disquiet/DSC_0578.JPG', aspect: 1.773006 }, aspect: 1.773006 },
+            { path: { path: '/dominik-home/images/disquiet/DSC_0584.JPG', aspect: 1.773006 }, aspect: 1.773006 },
+            { path: { path: '/dominik-home/images/disquiet/DSC_0587.JPG', aspect: 1.773006 }, aspect: 1.773006 },
+            { path: { path: '/dominik-home/images/disquiet/image (1).png', aspect: 1.929465 }, aspect: 1.929465 },
+            { path: { path: '/dominik-home/images/disquiet/DSC_0629.JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/disquiet/DSC_0633.JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: 'https://youtu.be/EY59PGJ3V_k', aspect: 1.7777},
+            { path: 'https://youtu.be/t4FgBQqmSNA', aspect: 1.7777},
+            { path: 'https://youtu.be/cWjqUiSvsFg', aspect: 1.7777},
+            { path: 'https://youtu.be/CmKlTLSAyps', aspect: 1.7777},
         ],
         details: `
         a controllable led array to show constallations
@@ -363,7 +374,8 @@ export const ProjectData: ProjectInfo[] = [
         stats: [
             {label: "Time spent", value: "3 weeks"}
         ],
-        links: []
+        links: [],
+        galleryAspectMult: 3,
     },
     // chaos
     {
@@ -372,15 +384,15 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2022',
         endDate: '2022',
         description: 'a small project to gaze upon the beauty of chaos',
-        image1: { path: '/dominik-home/images/chaos/Chaos Pendulum (1).jpg', aspect: 0.75 },
-        image2: { path: '/dominik-home/images/chaos/Chaos_Pendulum_(2).jpg', aspect: 1.202655 },
+        image1: { path: { path: '/dominik-home/images/chaos/Chaos Pendulum (1).jpg', aspect: 0.75 }, aspect: 0.75 },
+        image2: { path: { path: '/dominik-home/images/chaos/Chaos_Pendulum_(2).jpg', aspect: 1.202655 }, aspect: 1.202655 },
         images: [
-            { path: '/dominik-home/images/chaos/Chaos Pendulum (1).jpg', aspect: 0.75 },
-            { path: '/dominik-home/images/chaos/Chaos_Pendulum_(2).jpg', aspect: 1.202655 },
-            'https://youtu.be/9DSRXqGEiEk',
-            'https://youtu.be/kRcW76c-ZZk',
-            'https://youtu.be/CMGnyCtR5CA',
-            'https://youtu.be/AO2fhzG1B2w',
+            { path: { path: '/dominik-home/images/chaos/Chaos Pendulum (1).jpg', aspect: 0.75 }, aspect: 0.75 },
+            { path: { path: '/dominik-home/images/chaos/Chaos_Pendulum_(2).jpg', aspect: 1.202655 }, aspect: 1.202655 },
+            { path: 'https://youtu.be/9DSRXqGEiEk', aspect: 1.7777},
+            { path: 'https://youtu.be/kRcW76c-ZZk', aspect: 1.7777},
+            { path: 'https://youtu.be/CMGnyCtR5CA', aspect: 1.7777},
+            { path: 'https://youtu.be/AO2fhzG1B2w', aspect: 1.7777},
         ],
         details: `
         a small project to gaze upon the beauty of chaos
@@ -392,6 +404,7 @@ export const ProjectData: ProjectInfo[] = [
             {label: "Time spent", value: "1 month 11 days"}
         ],
         links: [],
+        galleryAspectMult: 20,
     },
     // gravity
     {
@@ -400,16 +413,16 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2021-04-15',
         endDate: '2021-04-24',
         description: 'playing around with newtonian gravity simulations',
-        image1: { path: '/dominik-home/images/gravity/gravity (3).png', aspect: 0.95679 },
-        image2: { path: '/dominik-home/images/gravity/gravity (2).JPG', aspect: 1.772512 },
+        image1: { path: { path: '/dominik-home/images/gravity/gravity (3).png', aspect: 0.95679 }, aspect: 0.95679 },
+        image2: { path: { path: '/dominik-home/images/gravity/gravity (2).JPG', aspect: 1.772512 }, aspect: 1.772512 },
         images: [
-            { path: '/dominik-home/images/gravity/gravity (2).png', aspect: 1.014806 },
-            { path: '/dominik-home/images/gravity/gravity (3).png', aspect: 0.95679 },
-            { path: '/dominik-home/images/gravity/gravity (4).png', aspect: 0.967638 },
-            { path: '/dominik-home/images/gravity/gravity (2).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/gravity/gravity (3).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/gravity/gravity (4).JPG', aspect: 1.772512 },
-            'https://youtu.be/hCfsjraMaRc',
+            { path: { path: '/dominik-home/images/gravity/gravity (2).png', aspect: 1.014806 }, aspect: 1.014806 },
+            { path: { path: '/dominik-home/images/gravity/gravity (3).png', aspect: 0.95679 }, aspect: 0.95679 },
+            { path: { path: '/dominik-home/images/gravity/gravity (4).png', aspect: 0.967638 }, aspect: 0.967638 },
+            { path: { path: '/dominik-home/images/gravity/gravity (2).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/gravity/gravity (3).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/gravity/gravity (4).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: 'https://youtu.be/hCfsjraMaRc', aspect: 1.7777},
         ],
         details: `
         Taking a break while doing the DAES
@@ -423,7 +436,8 @@ export const ProjectData: ProjectInfo[] = [
             {title: "Solar System Simulation - PC", url:'https://drive.google.com/file/d/1ZdceGFTvNG5vzDfEH3bzUkn3TIHVSudB/view?usp=sharing', filePath:''},
             {title: "Three body - Android", url:'https://drive.google.com/file/d/1q-ejeIB6ihqUH9df4pHX36R8dH87KhoH/view?usp=sharing', filePath:''},
             {title: "Gravity Simulation - HTML", url:'https://drive.google.com/file/d/1YDdSvx3ummSVUOzJJsfr70oLFfTmBlYP/view?usp=sharing', filePath:''}
-        ]
+        ],
+        galleryAspectMult: 20,
     },
     // polygon ninja
     {
@@ -432,15 +446,15 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2021-07-02',
         endDate: '2021-08-12',
         description: 'game(s) about slicing 3d objects',
-        image1: { path: '/dominik-home/images/polygon/polygon (1).png', aspect: 0.999092 },
-        image2: { path: '/dominik-home/images/polygon/polygon (2).png', aspect: 1.151125 },
+        image1: { path: { path: '/dominik-home/images/polygon/polygon (1).png', aspect: 0.999092 }, aspect: 0.999092 },
+        image2: { path: { path: '/dominik-home/images/polygon/polygon (2).png', aspect: 1.151125 }, aspect: 1.151125 },
         images: [
-            { path: '/dominik-home/images/polygon/polygon (1).png', aspect: 0.999092 },
-            { path: '/dominik-home/images/polygon/polygon (2).png', aspect: 1.151125 },
-            { path: '/dominik-home/images/polygon/polygon (3).png', aspect: 1.102041 },
-            { path: '/dominik-home/images/polygon/Polygon Ninja (2).png', aspect: 1.136201 },
-            { path: '/dominik-home/images/polygon/Polygon Ninja (3).png', aspect: 1.03908 },
-            { path: '/dominik-home/images/polygon/polygon (4).png', aspect: 1.0 },
+            { path: { path: '/dominik-home/images/polygon/polygon (1).png', aspect: 0.999092 }, aspect: 0.999092 },
+            { path: { path: '/dominik-home/images/polygon/polygon (2).png', aspect: 1.151125 }, aspect: 1.151125 },
+            { path: { path: '/dominik-home/images/polygon/polygon (3).png', aspect: 1.102041 }, aspect: 1.102041 },
+            { path: { path: '/dominik-home/images/polygon/Polygon Ninja (2).png', aspect: 1.136201 }, aspect: 1.136201 },
+            { path: { path: '/dominik-home/images/polygon/Polygon Ninja (3).png', aspect: 1.03908 }, aspect: 1.03908 },
+            { path: { path: '/dominik-home/images/polygon/polygon (4).png', aspect: 1.0 }, aspect: 1.0 },
         ],
         details: `
             VR Slicer: started 2-9 July, 7 days
@@ -454,7 +468,8 @@ export const ProjectData: ProjectInfo[] = [
             {title: "Polygon Ninja PC version", url:'https://drive.google.com/file/d/1X0ShvZyV7d8lqo0nokJ7bIQMlMBBwq-J/view?usp=sharing', filePath:''},
             {title: "Polygon Ninja Android version", url:'https://drive.google.com/file/d/1pAk2RWLG3H_Qq2dR-1e5q4GR5AaiiXR5/view?usp=sharing', filePath:''},
             {title: "Physics VR", url:'https://drive.google.com/file/d/1SrFLOy8KgSO8PDlgPXApOMVPgI_D9PVo/view?usp=sharing', filePath:''}
-        ]
+        ],
+        galleryAspectMult:8,
     }, 
     // xmasDOS
     {
@@ -463,25 +478,25 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2021-11-19',
         endDate: '2021-12-06',
         description: 'a wooden christmas tree that playes music and changes lights',
-        image1: { path: '/dominik-home/images/dos/DSC_0270.JPG', aspect: 1.772512 },
-        image2: { path: '/dominik-home/images/dos/_20211125_101059.JPG', aspect: 0.633146 },
+        image1: { path: { path: '/dominik-home/images/dos/DSC_0270.JPG', aspect: 1.772512 }, aspect: 1.772512 },
+        image2: { path: { path: '/dominik-home/images/dos/_20211125_101059.JPG', aspect: 0.633146 }, aspect: 0.633146 },
         images: [
-            { path: '/dominik-home/images/dos/_20211119_002240.JPG', aspect: 1.341279 },
-            { path: '/dominik-home/images/dos/_20211121_132457.JPG', aspect: 0.731239 },
-            { path: '/dominik-home/images/dos/_20211124_120810.JPG', aspect: 0.723573 },
-            { path: '/dominik-home/images/dos/_20211124_120841.JPG', aspect: 0.898518 },
-            { path: '/dominik-home/images/dos/_20211125_101059.JPG', aspect: 0.633146 },
-            { path: '/dominik-home/images/dos/DSC_0265.JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/dos/DSC_0270.JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/dos/DSC_0271.JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/dos/DSC_0275.JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/dos/DSC_0277.JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/dos/IMG_20221014_131555.jpg', aspect: 0.75 },
-            { path: '/dominik-home/images/dos/IMG_20221013_211955.jpg', aspect: 1.333333 },
-            'https://www.youtube.com/watch?v=3Dx9uBcoolM',
-            'https://youtu.be/FyOHxBz1YqE?si=J6o-pDji89J4I1Lq',
-            'https://youtu.be/8Y-52JqTwEc?si=SdqqXLbhfiVG73wr',
-            'https://youtu.be/rGNJDvKczU4?si=k3cUHvmzFjQ3aahs',
+            { path: { path: '/dominik-home/images/dos/_20211119_002240.JPG', aspect: 1.341279 }, aspect: 1.341279 },
+            { path: { path: '/dominik-home/images/dos/_20211121_132457.JPG', aspect: 0.731239 }, aspect: 0.731239 },
+            { path: { path: '/dominik-home/images/dos/_20211124_120810.JPG', aspect: 0.723573 }, aspect: 0.723573 },
+            { path: { path: '/dominik-home/images/dos/_20211124_120841.JPG', aspect: 0.898518 }, aspect: 0.898518 },
+            { path: { path: '/dominik-home/images/dos/_20211125_101059.JPG', aspect: 0.633146 }, aspect: 0.633146 },
+            { path: { path: '/dominik-home/images/dos/DSC_0265.JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/dos/DSC_0270.JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/dos/DSC_0271.JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/dos/DSC_0275.JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/dos/DSC_0277.JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/dos/IMG_20221014_131555.jpg', aspect: 0.75 }, aspect: 0.75 },
+            { path: { path: '/dominik-home/images/dos/IMG_20221013_211955.jpg', aspect: 1.333333 }, aspect: 1.333333 },
+            { path: 'https://youtu.be/3Dx9uBcoolM', aspect: 1.7777},
+            { path: 'https://youtu.be/FyOHxBz1YqE?si=J6o-pDji89J4I1Lq', aspect: 1.7777},
+            { path: 'https://youtu.be/8Y-52JqTwEc?si=SdqqXLbhfiVG73wr', aspect: 1.7777},
+            { path: 'https://youtu.be/rGNJDvKczU4?si=k3cUHvmzFjQ3aahs', aspect: 1.7777},
         ],
         details: `
             a wooden christmas tree that playes music and changes lights
@@ -498,7 +513,8 @@ export const ProjectData: ProjectInfo[] = [
         stats: [
             {label: "Time spent", value: "v1 - 9days, v2 - longer..."}
         ],
-        links: []
+        links: [],
+        galleryAspectMult: 3.5,
     },
     // calc.io
     {
@@ -507,22 +523,22 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2022-12',
         endDate: '2023-01',
         description: 'a self-build calculator, do NOT divide by zero',
-        image1: { path: '/dominik-home/images/calc/IMG_20230125_174154.jpg', aspect: 0.75 },
-        image2: { path: '/dominik-home/images/calc/IMG_20221227_004918.jpg', aspect: 0.75 },
+        image1: { path: { path: '/dominik-home/images/calc/IMG_20230125_174154.jpg', aspect: 0.75 }, aspect: 0.75 },
+        image2: { path: { path: '/dominik-home/images/calc/IMG_20221227_004918.jpg', aspect: 0.75 }, aspect: 0.75 },
         images: [
-            { path: '/dominik-home/images/calc/IMG_20221203_020153.jpg', aspect: 0.75 },
-            { path: '/dominik-home/images/calc/IMG_20221204_231024.jpg', aspect: 0.75 },
-            { path: '/dominik-home/images/calc/IMG_20221207_175215.jpg', aspect: 0.75 },
-            { path: '/dominik-home/images/calc/IMG_20221207_231605.jpg', aspect: 0.75 },
-            { path: '/dominik-home/images/calc/IMG_20221207_231712.jpg', aspect: 0.75 },
-            { path: '/dominik-home/images/calc/IMG_20221208_231021.jpg', aspect: 0.75 },
-            { path: '/dominik-home/images/calc/IMG_20221214_233935.jpg', aspect: 0.75 },
-            { path: '/dominik-home/images/calc/IMG_20221214_234016.jpg', aspect: 0.75 },
-            { path: '/dominik-home/images/calc/IMG_20221227_004918.jpg', aspect: 0.75 },
-            { path: '/dominik-home/images/calc/IMG_20221229_232231.jpg', aspect: 0.75 },
-            { path: '/dominik-home/images/calc/IMG_20230106_220229.jpg', aspect: 0.75 },
-            { path: '/dominik-home/images/calc/IMG_20230125_174154.jpg', aspect: 0.75 },
-            'https://youtu.be/5EYUNZrHSXc',
+            { path: { path: '/dominik-home/images/calc/IMG_20221203_020153.jpg', aspect: 0.75 }, aspect: 0.75 },
+            { path: { path: '/dominik-home/images/calc/IMG_20221204_231024.jpg', aspect: 0.75 }, aspect: 0.75 },
+            { path: { path: '/dominik-home/images/calc/IMG_20221207_175215.jpg', aspect: 0.75 }, aspect: 0.75 },
+            { path: { path: '/dominik-home/images/calc/IMG_20221207_231605.jpg', aspect: 0.75 }, aspect: 0.75 },
+            { path: { path: '/dominik-home/images/calc/IMG_20221207_231712.jpg', aspect: 0.75 }, aspect: 0.75 },
+            { path: { path: '/dominik-home/images/calc/IMG_20221208_231021.jpg', aspect: 0.75 }, aspect: 0.75 },
+            { path: { path: '/dominik-home/images/calc/IMG_20221214_233935.jpg', aspect: 0.75 }, aspect: 0.75 },
+            { path: { path: '/dominik-home/images/calc/IMG_20221214_234016.jpg', aspect: 0.75 }, aspect: 0.75 },
+            { path: { path: '/dominik-home/images/calc/IMG_20221227_004918.jpg', aspect: 0.75 }, aspect: 0.75 },
+            { path: { path: '/dominik-home/images/calc/IMG_20221229_232231.jpg', aspect: 0.75 }, aspect: 0.75 },
+            { path: { path: '/dominik-home/images/calc/IMG_20230106_220229.jpg', aspect: 0.75 }, aspect: 0.75 },
+            { path: { path: '/dominik-home/images/calc/IMG_20230125_174154.jpg', aspect: 0.75 }, aspect: 0.75 },
+            { path: 'https://youtu.be/5EYUNZrHSXc', aspect: 1.7777},
 
         ],
         details: `
@@ -534,6 +550,7 @@ export const ProjectData: ProjectInfo[] = [
         stats: [
         ],
         links: [],
+        galleryAspectMult: 8,
     },
     // particles
     {
@@ -542,15 +559,15 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2021-09',
         endDate: '2021-09',
         description: 'playing around with particles',
-        image1: { path: '/dominik-home/images/particles/Particles VII.JPG', aspect: 1.668574 },
-        image2: { path: '/dominik-home/images/particles/Particles V.JPG', aspect: 1.772512 },
+        image1: { path: { path: '/dominik-home/images/particles/Particles VII.JPG', aspect: 1.668574 }, aspect: 1.668574 },
+        image2: { path: { path: '/dominik-home/images/particles/Particles V.JPG', aspect: 1.772512 }, aspect: 1.772512 },
         images: [
-            { path: '/dominik-home/images/particles/Particles V.JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/particles/Particles VII.JPG', aspect: 1.668574 },
-            'https://youtu.be/Wavc3CdgrGE',
-            'https://youtu.be/cTLkQZIiiEs',
-            'https://youtu.be/I6bxJUzhSXw',
-            'https://youtu.be/nL1JxKPHErQ',
+            { path: { path: '/dominik-home/images/particles/Particles V.JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/particles/Particles VII.JPG', aspect: 1.668574 }, aspect: 1.668574 },
+            { path: 'https://youtu.be/Wavc3CdgrGE', aspect: 1.7777},
+            { path: 'https://youtu.be/cTLkQZIiiEs', aspect: 1.7777},
+            { path: 'https://youtu.be/I6bxJUzhSXw', aspect: 1.7777},
+            { path: 'https://youtu.be/nL1JxKPHErQ', aspect: 1.7777},
         ],
         details: `
             simulating gravity, collision, molecule life
@@ -558,6 +575,7 @@ export const ProjectData: ProjectInfo[] = [
         stats: [
         ],
         links: [],
+        galleryAspectMult: 20,
     },
     // fishing
     {
@@ -566,23 +584,23 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2022-05',
         endDate: '2022-05',
         description: 'a game about fishing in the future',
-        image1: { path: '/dominik-home/images/fishing/fishing (6).png', aspect: 1.690167 },
-        image2: { path: '/dominik-home/images/fishing/fishing (3).png', aspect: 1.52349 },
+        image1: { path: { path: '/dominik-home/images/fishing/fishing (6).png', aspect: 1.690167 }, aspect: 1.690167 },
+        image2: { path: { path: '/dominik-home/images/fishing/fishing (3).png', aspect: 1.52349 }, aspect: 1.52349 },
         images: [
-            { path: '/dominik-home/images/fishing/fishing (1).png', aspect: 1.261364 },
-            { path: '/dominik-home/images/fishing/fishing (2).png', aspect: 2.05 },
-            { path: '/dominik-home/images/fishing/fishing (3).png', aspect: 1.52349 },
-            { path: '/dominik-home/images/fishing/fishing (4).png', aspect: 1.065517 },
-            { path: '/dominik-home/images/fishing/fishing (5).png', aspect: 1.827869 },
-            { path: '/dominik-home/images/fishing/fishing (6).png', aspect: 1.690167 },
-            { path: '/dominik-home/images/fishing/fishing (7).png', aspect: 1.617647 },
-            { path: '/dominik-home/images/fishing/fishing (8).png', aspect: 1.698901 },
-            { path: '/dominik-home/images/fishing/fishing (1).jpg', aspect: 1.772512 },
-            { path: '/dominik-home/images/fishing/fishing (2).jpg', aspect: 1.106522 },
-            { path: '/dominik-home/images/fishing/fishing (3).JPG', aspect: 1.773006 },
-            'https://youtu.be/zBdteTejxA4',
-            'https://youtu.be/fCfxW-BThqU',
-            'https://youtu.be/_lRl5IoEr8w',
+            { path: { path: '/dominik-home/images/fishing/fishing (1).png', aspect: 1.261364 }, aspect: 1.261364 },
+            { path: { path: '/dominik-home/images/fishing/fishing (2).png', aspect: 2.05 }, aspect: 2.05 },
+            { path: { path: '/dominik-home/images/fishing/fishing (3).png', aspect: 1.52349 }, aspect: 1.52349 },
+            { path: { path: '/dominik-home/images/fishing/fishing (4).png', aspect: 1.065517 }, aspect: 1.065517 },
+            { path: { path: '/dominik-home/images/fishing/fishing (5).png', aspect: 1.827869 }, aspect: 1.827869 },
+            { path: { path: '/dominik-home/images/fishing/fishing (6).png', aspect: 1.690167 }, aspect: 1.690167 },
+            { path: { path: '/dominik-home/images/fishing/fishing (7).png', aspect: 1.617647 }, aspect: 1.617647 },
+            { path: { path: '/dominik-home/images/fishing/fishing (8).png', aspect: 1.698901 }, aspect: 1.698901 },
+            { path: { path: '/dominik-home/images/fishing/fishing (1).jpg', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/fishing/fishing (2).jpg', aspect: 1.106522 }, aspect: 1.106522 },
+            { path: { path: '/dominik-home/images/fishing/fishing (3).JPG', aspect: 1.773006 }, aspect: 1.773006 },
+            { path: 'https://youtu.be/zBdteTejxA4', aspect: 1.7777},
+            { path: 'https://youtu.be/fCfxW-BThqU', aspect: 1.7777},
+            { path: 'https://youtu.be/_lRl5IoEr8w', aspect: 1.7777},
         ],
         details: `
             i wanted to make a pixel art sci-fi game with fishing elements 
@@ -595,6 +613,7 @@ export const ProjectData: ProjectInfo[] = [
         stats: [
         ],
         links: [],
+        galleryAspectMult: 4.3,
     },
     // chasm
     {
@@ -603,20 +622,20 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2022-10',
         endDate: '2022-10',
         description: 'a model of a concrete bridge',
-        image1: { path: '/dominik-home/images/chasm/Crossed Chasm (5).JPG', aspect: 0.763628 },
-        image2: { path: '/dominik-home/images/chasm/Crossed Chasm (4).JPG', aspect: 0.869655 },
+        image1: { path: { path: '/dominik-home/images/chasm/Crossed Chasm (5).JPG', aspect: 0.763628 }, aspect: 0.763628 },
+        image2: { path: { path: '/dominik-home/images/chasm/Crossed Chasm (4).JPG', aspect: 0.869655 }, aspect: 0.869655 },
         images: [
-            { path: '/dominik-home/images/chasm/Crossed Chasm (1).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/chasm/Crossed Chasm (2).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/chasm/Crossed Chasm (3).JPG', aspect: 0.78585 },
-            { path: '/dominik-home/images/chasm/Crossed Chasm (4).JPG', aspect: 0.869655 },
-            { path: '/dominik-home/images/chasm/Crossed Chasm (5).JPG', aspect: 0.763628 },
-            { path: '/dominik-home/images/chasm/Crossed Chasm (6).JPG', aspect: 0.913914 },
-            { path: '/dominik-home/images/chasm/Crossed Chasm (7).JPG', aspect: 0.852095 },
-            { path: '/dominik-home/images/chasm/Crossed Chasm (8).JPG', aspect: 0.836057 },
-            { path: '/dominik-home/images/chasm/Crossed Chasm (9).JPG', aspect: 0.81037 },
-            { path: '/dominik-home/images/chasm/Crossed Chasm (10).JPG', aspect: 0.902545 },
-            { path: '/dominik-home/images/chasm/Crossed Chasm (11).png', aspect: 0.991543 },
+            { path: { path: '/dominik-home/images/chasm/Crossed Chasm (1).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/chasm/Crossed Chasm (2).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/chasm/Crossed Chasm (3).JPG', aspect: 0.78585 }, aspect: 0.78585 },
+            { path: { path: '/dominik-home/images/chasm/Crossed Chasm (4).JPG', aspect: 0.869655 }, aspect: 0.869655 },
+            { path: { path: '/dominik-home/images/chasm/Crossed Chasm (5).JPG', aspect: 0.763628 }, aspect: 0.763628 },
+            { path: { path: '/dominik-home/images/chasm/Crossed Chasm (6).JPG', aspect: 0.913914 }, aspect: 0.913914 },
+            { path: { path: '/dominik-home/images/chasm/Crossed Chasm (7).JPG', aspect: 0.852095 }, aspect: 0.852095 },
+            { path: { path: '/dominik-home/images/chasm/Crossed Chasm (8).JPG', aspect: 0.836057 }, aspect: 0.836057 },
+            { path: { path: '/dominik-home/images/chasm/Crossed Chasm (9).JPG', aspect: 0.81037 }, aspect: 0.81037 },
+            { path: { path: '/dominik-home/images/chasm/Crossed Chasm (10).JPG', aspect: 0.902545 }, aspect: 0.902545 },
+            { path: { path: '/dominik-home/images/chasm/Crossed Chasm (11).png', aspect: 0.991543 }, aspect: 0.991543 },
         ],
         details: `
             i never replaced the batteries and they died after like 2 weeks, 
@@ -625,6 +644,7 @@ export const ProjectData: ProjectInfo[] = [
         stats: [
         ],
         links: [],
+        galleryAspectMult: 4.7,
     },
     //confinement
     {
@@ -633,29 +653,29 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2020-12',
         endDate: '2020-12',
         description: 'a styrofoam model of a confined tent',
-        image1: { path: '/dominik-home/images/confinement/Confinement (9).JPG', aspect: 1.772512 },
-        image2: { path: '/dominik-home/images/confinement/Confinement (2).JPG', aspect: 2.53821 },
+        image1: { path: { path: '/dominik-home/images/confinement/Confinement (9).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+        image2: { path: { path: '/dominik-home/images/confinement/Confinement (2).JPG', aspect: 2.53821 }, aspect: 2.53821 },
         images: [
-            { path: '/dominik-home/images/confinement/Confinement (0).png', aspect: 2.102941 },
-            { path: '/dominik-home/images/confinement/Confinement (1).JPG', aspect: 3.912709 },
-            { path: '/dominik-home/images/confinement/Confinement (2).JPG', aspect: 2.53821 },
-            { path: '/dominik-home/images/confinement/Confinement (2).png', aspect: 4.273381 },
-            { path: '/dominik-home/images/confinement/Confinement (3).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/confinement/Confinement (4).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/confinement/Confinement (5).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/confinement/Confinement (6).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/confinement/Confinement (7).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/confinement/Confinement (8).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/confinement/Confinement (9).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/confinement/Confinement (10).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/confinement/Confinement (11).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/confinement/Confinement (12).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/confinement/Confinement (13).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/confinement/Confinement (14).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/confinement/Confinement (15).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/confinement/Confinement (16).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/confinement/Confinement (17).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/confinement/Confinement (18).JPG', aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (0).png', aspect: 2.102941 }, aspect: 2.102941 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (1).JPG', aspect: 3.912709 }, aspect: 3.912709 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (2).JPG', aspect: 2.53821 }, aspect: 2.53821 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (2).png', aspect: 4.273381 }, aspect: 4.273381 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (3).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (4).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (5).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (6).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (7).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (8).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (9).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (10).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (11).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (12).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (13).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (14).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (15).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (16).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (17).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/confinement/Confinement (18).JPG', aspect: 1.772512 }, aspect: 1.772512 },
         ],
         details: `
             the world isnt bent on the right, it was a design choice to
@@ -664,6 +684,7 @@ export const ProjectData: ProjectInfo[] = [
         stats: [
         ],
         links: [],
+        galleryAspectMult: 3.5,
     },
     // scalar
     {
@@ -672,17 +693,17 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2020-08-16',
         endDate: '2020-11-16',
         description: 'first complete game, a typical pixel-art platformer (with guns obviously)',
-        image1: { path: '/dominik-home/images/scalar/scalar (2).png', aspect: 1.09375 },
-        image2: { path: '/dominik-home/images/scalar/scalar (6).png', aspect: 1.582245 },
+        image1: { path: { path: '/dominik-home/images/scalar/scalar (2).png', aspect: 1.09375 }, aspect: 1.09375 },
+        image2: { path: { path: '/dominik-home/images/scalar/scalar (6).png', aspect: 1.582245 }, aspect: 1.582245 },
         images: [
-            { path: '/dominik-home/images/scalar/scalar (1).png', aspect: 1.94959 },
-            { path: '/dominik-home/images/scalar/scalar (2).png', aspect: 1.09375 },
-            { path: '/dominik-home/images/scalar/scalar (3).png', aspect: 1.819615 },
-            { path: '/dominik-home/images/scalar/scalar (4).png', aspect: 1.701863 },
-            { path: '/dominik-home/images/scalar/scalar (5).png', aspect: 1.672666 },
-            { path: '/dominik-home/images/scalar/scalar (6).png', aspect: 1.582245 },
-            { path: '/dominik-home/images/scalar/scalar (7).png', aspect: 1.521848 },
-            { path: '/dominik-home/images/scalar/scalar (8).png', aspect: 1.369253 },
+            { path: { path: '/dominik-home/images/scalar/scalar (1).png', aspect: 1.94959 }, aspect: 1.94959 },
+            { path: { path: '/dominik-home/images/scalar/scalar (2).png', aspect: 1.09375 }, aspect: 1.09375 },
+            { path: { path: '/dominik-home/images/scalar/scalar (3).png', aspect: 1.819615 }, aspect: 1.819615 },
+            { path: { path: '/dominik-home/images/scalar/scalar (4).png', aspect: 1.701863 }, aspect: 1.701863 },
+            { path: { path: '/dominik-home/images/scalar/scalar (5).png', aspect: 1.672666 }, aspect: 1.672666 },
+            { path: { path: '/dominik-home/images/scalar/scalar (6).png', aspect: 1.582245 }, aspect: 1.582245 },
+            { path: { path: '/dominik-home/images/scalar/scalar (7).png', aspect: 1.521848 }, aspect: 1.521848 },
+            { path: { path: '/dominik-home/images/scalar/scalar (8).png', aspect: 1.369253 }, aspect: 1.369253 },
         ],
         details: `
         First finished game, a platformaer where you battle new york mafia in
@@ -694,7 +715,8 @@ export const ProjectData: ProjectInfo[] = [
         ],
         links: [
             {title: "Scalar PC version", url:'https://drive.google.com/file/d/1UY55g5vfPRTrlDunAN6socQnu9LB02k3/view?usp=sharing', filePath:''}
-        ]
+        ],
+        galleryAspectMult: 20,
     },
     // daes
     {
@@ -703,23 +725,23 @@ export const ProjectData: ProjectInfo[] = [
         startDate: '2021-05',
         endDate: '2021-05',
         description: 'a game console with a matrix display',
-        image1: { path: '/dominik-home/images/daes/DAES (7).JPG', aspect: 1.772512 },
-        image2: { path: '/dominik-home/images/daes/DAES (10).JPG', aspect: 1.772512 },
+        image1: { path: { path: '/dominik-home/images/daes/DAES (7).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+        image2: { path: { path: '/dominik-home/images/daes/DAES (10).JPG', aspect: 1.772512 }, aspect: 1.772512 },
         images: [
-            { path: '/dominik-home/images/daes/DAES (1).jpg', aspect: 1.772512 },
-            { path: '/dominik-home/images/daes/DAES (2).jpg', aspect: 1.772512 },
-            { path: '/dominik-home/images/daes/DAES (3).jpg', aspect: 1.772512 },
-            { path: '/dominik-home/images/daes/DAES (4).jpg', aspect: 1.772512 },
-            { path: '/dominik-home/images/daes/DAES (5).jpg', aspect: 1.772512 },
-            { path: '/dominik-home/images/daes/DAES (6).jpg', aspect: 1.772512 },
-            { path: '/dominik-home/images/daes/DAES (7).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/daes/DAES (8).jpg', aspect: 0.564171 },
-            { path: '/dominik-home/images/daes/DAES (9).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/daes/DAES (10).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/daes/DAES (11).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/daes/DAES (12).JPG', aspect: 1.772512 },
-            { path: '/dominik-home/images/daes/DAES (13).JPG', aspect: 1.772512 },
-            'https://youtu.be/Ls85uMQ-O8I',
+            { path: { path: '/dominik-home/images/daes/DAES (1).jpg', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/daes/DAES (2).jpg', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/daes/DAES (3).jpg', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/daes/DAES (4).jpg', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/daes/DAES (5).jpg', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/daes/DAES (6).jpg', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/daes/DAES (7).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/daes/DAES (8).jpg', aspect: 0.564171 }, aspect: 0.564171 },
+            { path: { path: '/dominik-home/images/daes/DAES (9).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/daes/DAES (10).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/daes/DAES (11).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/daes/DAES (12).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: { path: '/dominik-home/images/daes/DAES (13).JPG', aspect: 1.772512 }, aspect: 1.772512 },
+            { path: 'https://youtu.be/Ls85uMQ-O8I', aspect: 1.7777},
         ],
         details: `
             I scripted all the games I could think of and then filed the rest of the 
@@ -730,5 +752,41 @@ export const ProjectData: ProjectInfo[] = [
         stats: [
         ],
         links: [],
+        galleryAspectMult: 4,
+    },
+        // post guide
+    {
+        title: 'The Post Guide',
+        tag: 'Computer Game',
+        startDate: '2021-03-07',
+        endDate: '2021-03-31',
+        description: 'playing around with procedural generation',
+        image1: { path: '/dominik-home/images/post/post (2).png', aspect: 1.757709 },
+        image2: { path: '/dominik-home/images/post/post (1).png', aspect: 1.0 },
+        images: [
+            { path: '/dominik-home/images/post/post (1).png', aspect: 1.0 },
+            { path: '/dominik-home/images/post/post (2).png', aspect: 1.757709 },
+            { path: '/dominik-home/images/post/post (3).png', aspect: 1.798371 },
+            { path: '/dominik-home/images/post/post (1).JPG', aspect: 1.445916 },
+            { path: '/dominik-home/images/post/post (4).png', aspect: 1.777778 },
+            'https://youtu.be/ORgBsOLUDH0',
+        ],
+        details: `
+        Little game to play around with procedurally generated terrain,
+        complete with multiple biomes, random trees, rocks, lakes, oceans,
+        volcanoes, and so on.
+
+        Also a inverse kinematics system for procedural walking.
+
+        Game is jank though xd.
+        `,
+        stats: [
+            {label: "Time spent", value: "3 weeks and 3 days"}
+        ],
+        links: [
+            {title: "The Post Guide PC version", url:'https://drive.google.com/file/d/1BYKGIjRZb4ZTDGTTBrvpA7a30rOLetNw/view?usp=sharing', filePath:''},
+            {title: "The Post Guide Android version", url:'https://drive.google.com/file/d/1m73LjLtqI6OTcIL6LBKIRzzQVNenNR37/view?usp=sharing', filePath:''}
+        ],
+        galleryAspectMult: 3
     },
 ]
