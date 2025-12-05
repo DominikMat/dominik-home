@@ -29,6 +29,70 @@ export interface ProjectInfo {
 }
 
 export const ProjectData: ProjectInfo[] = [
+    // simple gear calculator
+    {
+    title: 'Simple Gear Calculator',
+    tag: 'Website',
+    startDate: '2025',
+    endDate: '2025',
+    description: 'a website to visually display meshing gears of different sizes',
+    images: [
+        { path: '/dominik-home/images/gears/title.png', aspect: 500/56 },
+        { path: '/dominik-home/images/gears/gears.png', aspect: 1 },
+        { path: '/dominik-home/images/gears/tether.png', aspect: 951/790 },
+        { path: '/dominik-home/images/gears/new_gear.png', aspect: 776/730 },
+        { path: '/dominik-home/images/gears/info.png', aspect: 891/512 },
+        { path: '/dominik-home/images/gears/big_gear.png', aspect: 1058/651 },
+    ],
+    details: `
+        support modifing gear data dynamically: size, number of teeth, module, speed
+        automatically aligned gears so they mesh correcly,
+        you can 'tether' gears - which copies over their rotation speed, 
+        supports changing the simulation scale, so you can put in sizes of gears you are working with, 
+        to calculate the data for any connected gear
+        build in React for fun.
+    `,
+    stats: [
+    ],
+    links: [
+        {title: "Live website on gh pages", url:'https://dominikmat.github.io/simple-gear-calculator/', filePath:''},
+        {title: "Github repo", url:'https://github.com/DominikMat/simple-gear-calculator', filePath:''},
+    ],
+        galleryAspectMult: 12,
+    },
+    // string art robot
+    {
+    title: 'String art Robot',
+    tag: 'Engineering',
+    startDate: '2025',
+    endDate: '2025',
+    description: 'a robot that creates string art on a circular ring of nails',
+    images: [
+        { path: '/dominik-home/images/string-robot/assembled.jpg', aspect: 2083/2011 },
+        { path: '/dominik-home/images/string-robot/parts.jpg', aspect: 2777/2083 },
+        { path: '/dominik-home/images/string-robot/prints.jpg', aspect: 1344/756 },
+        { path: 'https://youtu.be/TUs5X3Doydk', aspect: 1.777 },
+        { path: 'https://youtu.be/Qxbhm3yw1Us', aspect: 1.777 },
+        { path: 'https://youtu.be/gw7TlqKRpaU', aspect: 1.777 },
+        { path: '/dominik-home/images/string-robot/tinker.jpg', aspect: 3968/2976 },
+        { path: '/dominik-home/images/string-robot/result.jpg', aspect: 3968/2976 },
+    ],
+    details: `
+        the robot consists of a servo and a stepper motor, the frame is 3D printed.
+        It has been built for the Intro to Robotics class at the University of the Aegean in 2025 winter semester,
+        that's why it does not work very well, we only had one shot at printing.
+        The robot is controlled with a raspberry pi pico with a c++ program, we wrote an additional 
+        string visuallizer program in python.
+    `,
+    stats: [
+    ],
+    links: [
+        {title: "Video presentation", url:'https://youtu.be/TUs5X3Doydk', filePath:''},
+        {title: "Slideshow", url:'https://docs.google.com/presentation/d/1VIfVSTO9Wcaq9Rl0Zi-_Bw-y_5G3Nwj30t2qu21ZTrM/edit?usp=sharing', filePath:''},
+        {title: "Github repo", url:'https://github.com/DominikMat/string-art-robot', filePath:''},
+    ],
+        galleryAspectMult: 12,
+    },
     // portfolio
     {
     title: 'Home & Portfolio website',
