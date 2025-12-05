@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/dominik-home/static/css/main.5a587fc2.css",
-    "main.js": "/dominik-home/static/js/main.70b921f9.js",
+    "main.js": "/dominik-home/static/js/main.90c5e437.js",
     "static/js/453.7d135dbe.chunk.js": "/dominik-home/static/js/453.7d135dbe.chunk.js",
     "index.html": "/dominik-home/index.html",
     "main.5a587fc2.css.map": "/dominik-home/static/css/main.5a587fc2.css.map",
-    "main.70b921f9.js.map": "/dominik-home/static/js/main.70b921f9.js.map",
+    "main.90c5e437.js.map": "/dominik-home/static/js/main.90c5e437.js.map",
     "453.7d135dbe.chunk.js.map": "/dominik-home/static/js/453.7d135dbe.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5a587fc2.css",
-    "static/js/main.70b921f9.js"
+    "static/js/main.90c5e437.js"
   ]
 }
