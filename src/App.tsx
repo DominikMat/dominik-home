@@ -1,6 +1,6 @@
-import Navigation from './components/Navigation';
-import Planet from './components/Planet';
-import * as settings from './components/SimulationSettings';
+import Navigation from './Navigation';
+import PlanetSimulation from './planet-sim/Planet';
+import * as planetSimulationSettings from './planet-sim/SimulationSettings';
 
 function App() {
   return (
@@ -8,8 +8,8 @@ function App() {
       
       <Navigation />
 
-      <Planet 
-        size={settings.CANVAS_SIDE_LEN}
+      <PlanetSimulation 
+        size={planetSimulationSettings.CANVAS_SIDE_LEN}
         positionX="25vw"
         positionY="0vh"
       />
