@@ -11,6 +11,7 @@ interface ProjectLive {
 }
 const ProjectsLive: ProjectLive[] = [
     { title: "Simple Gear Simulation", link: 'https://dominikmat.github.io/simple-gear-calculator/', htmlSite:false},
+    { title: "Old project webstie", link: 'https://dominikmat.github.io/portfolio_website/', htmlSite:false},
     { title: "Arc collisions HTML", link: '/dominik-home/circle-collisions/index.html', htmlSite:true},
     { title: "Softbody Simulation HTML", link: '/dominik-home/softbody simulation/index.html', htmlSite:true},
     { title: "Gravity Simulation HTML", link: '/dominik-home/gravity simulation/index.html', htmlSite:true},
