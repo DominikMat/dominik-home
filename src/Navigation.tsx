@@ -1,8 +1,8 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useState, useEffect } from 'react';
 import { ProjectData } from './components/ProjectData';
 import './Navigation.css'; 
 import ImageGallery from './components/ImageGallery';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 
 interface ProjectLive {
     title: string;
@@ -20,20 +20,25 @@ const ProjectsLive: ProjectLive[] = [
 ]
 
 const Navigation: React.FC = () => {
-  enum Mode { Default, About, ProjectsLive, ProjectsList };
-  const [currentMode, setMode] = useState<Mode>(Mode.Default);
+  const location = useLocation();
+  const navigate = useNavigate();
   const [lineHeight, setLineHeight] = useState<number>(300);
   const [selectedProject, setSelectedProject] = useState<number>(0);
   
-    function changeMode(newMode: Mode) {
-        setMode(newMode);
-        switch (newMode) {
-            case Mode.Default: setLineHeight(300); break;
-            case Mode.About: setLineHeight(230); break;
-            case Mode.ProjectsLive: setLineHeight(ProjectsLive.length*75); break;
-            case Mode.ProjectsList: setLineHeight(ProjectData.length*132.5); break;
+    useEffect(() => {
+        switch (location.pathname) {
+            case '/': 
+                setLineHeight(300); break;
+            case '/about': 
+                setLineHeight(230); break;
+            case '/live': 
+                setLineHeight(ProjectsLive.length * 75); break;
+            case '/projects': 
+                setLineHeight(ProjectData.length * 132.5); break;
+            default: 
+                setLineHeight(300);
         }
-    }
+    }, [location.pathname]);
 
   return (
     // Kontener do centrowania na ekranie
@@ -41,12 +46,12 @@ const Navigation: React.FC = () => {
       
       <div className="terminal-structure">
           <div className="top-line">
-            { currentMode != Mode.Default ? 
-                <button className="top-back-arrow" onClick={() => changeMode(Mode.Default)}>
+            {/* Show back button if we aren't on the home page */}
+            { location.pathname !== "/" && (
+                <button className="top-back-arrow" onClick={() => navigate('/')}>
                   &lt;---
                 </button>
-                : null
-            }
+            )}
           </div>
           <h1 className="name">Dominik Mat</h1>
 
@@ -55,52 +60,52 @@ const Navigation: React.FC = () => {
           <div className="animated-line"
             style={{ height: `${lineHeight}px` }}
           >
-
           </div>
-          
+        
+        <Routes>
+
             {/* DEFAUTL SECTION */}
-            { currentMode == Mode.Default ? 
+            <Route path="/" element={
                 <div className="links-wrapper">
-                    <a onClick={() => changeMode(Mode.About)}>about</a>
-                    <a onClick={() => changeMode(Mode.ProjectsList)}>projects</a>
-                    <a onClick={() => changeMode(Mode.ProjectsLive)}>websites live</a>
+                    <Link to="/about">about</Link>
+                    <Link to="/projects">projects</Link>
+                    <Link to="/live">websites live</Link>
                     <a href="https://github.com/DominikMat">github</a>
-                    {/* <a href="/dominik-home/CV_DominikMat.pdf"> -cv-</a> */}
-                </div> : null }
+                </div>
+            } />
 
             {/* ABOUT SECTION */}
-            { currentMode == Mode.About ? 
+            <Route path="/about" element={
                 <div className="about-textbox">
                     <p> hello internet! </p>
                     <p> I'm Dominik, I like </p>
                     <p> making simulations & </p>
                     <p> graphics programming :) </p>
-                </div> : null }
+                </div>
+            } />    
             
             {/* PROJCETS LIVE SECTION */}
-            { currentMode == Mode.ProjectsLive ? 
-                    <div className='links-wrapper'>
-                        {/* <BrowserRouter>
-                            <nav> */}
-                            {
-                                ProjectsLive.map((project,i) => (
-                                    <a href={project.link} 
-                                        style={{animationDelay:(0.225*i).toString()+'s', 
-                                            color: project.htmlSite ? '#4e4e4eff' : 'black',
-                                            fontSize: project.htmlSite ? '4ch' : '6ch'
-                                            }}
-                                    > 
-                                        {project.title} 
-                                    </a>
-                                ))
-                            }
-                            {/* </nav>
-                        </BrowserRouter> */}
-                    </div> : null }
+            <Route path="/live" element={
+                <div className='links-wrapper'>
+                    {ProjectsLive.map((project, i) => (
+                        <a 
+                            key={i}
+                            href={project.link} 
+                            style={{
+                                animationDelay: (0.225 * i) + 's', 
+                                color: project.htmlSite ? '#4e4e4eff' : 'black',
+                                fontSize: project.htmlSite ? '4ch' : '6ch'
+                            }}
+                        > 
+                            {project.title} 
+                        </a>
+                    ))}
+                </div>
+            } />
             
             {/* PROJECT LIST SECTION */}
-            { currentMode == Mode.ProjectsList ? 
-                    <div className='project-display'>
+            <Route path="/projects" element={
+                <div className='project-display'>
                         <div className="project-list" >
                             {
                                 ProjectData.map((project,i) => (
@@ -172,8 +177,9 @@ const Navigation: React.FC = () => {
                                 projectId={selectedProject}
                             />
                         </div>
-                        
-                    </div> : null }
+                </div>
+            } />
+        </Routes>
         </div>
       </div>        
     </div>

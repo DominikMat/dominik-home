@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import Navigation from './Navigation';
 import PlanetSimulation from './planet-sim/Planet';
 import * as planetSimulationSettings from './planet-sim/SimulationSettings';
@@ -6,7 +7,9 @@ function App() {
   return (
     <div className="App">
       
-      <Navigation />
+      <BrowserRouter>
+        <Navigation />
+      </BrowserRouter>
 
       <PlanetSimulation 
         size={planetSimulationSettings.CANVAS_SIDE_LEN}
