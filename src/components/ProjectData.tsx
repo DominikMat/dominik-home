@@ -29,6 +29,36 @@ export interface ProjectInfo {
 }
 
 export const ProjectData: ProjectInfo[] = [
+    // drifty roads
+    {
+    title: 'drifty roads',
+    tag: 'Computer Game',
+    startDate: '2026',
+    endDate: '2026',
+    description: 'a simple driving game with (somewhat) real physics',
+    images: [
+        { path: '/dominik-home/images/drifty/driftyroads_logo.png', aspect: 1 },
+        { path: '/dominik-home/images/drifty/screenie_1.png', aspect: 1778/916 },
+        { path: '/dominik-home/images/drifty/drift.png', aspect: 602/553 },
+        { path: '/dominik-home/images/drifty/title.png', aspect: 602/932 },
+        { path: '/dominik-home/images/drifty/crash.png', aspect: 602/932 },
+    ],
+    details: `
+        A 2D top-down driving game made in Godot Game Engine.
+        The physics system is inspired by a article by Marco Monster:
+        https://www.asawicki.info/Mirror/Car%20Physics%20for%20Games/Car%20Physics%20for%20Games.html?hl=en-GB
+
+        The controls were made with mobile in mind, you can download the game for Andoid and Windows.
+    `,
+    stats: [
+    ],
+    links: [
+        {title: "Windows download", url:'https://drive.google.com/drive/folders/1c6WdGF-vC6XJMYsy7sslEceoSIJOMPc2?usp=sharing', filePath:''},
+        {title: "Android download", url:'https://drive.google.com/drive/folders/1c6WdGF-vC6XJMYsy7sslEceoSIJOMPc2?usp=sharing', filePath:''},
+        {title: "Github repo", url:'https://github.com/DominikMat/drifty-roads', filePath:''},
+    ],
+        galleryAspectMult: 10,
+    },
     // simple gear calculator
     {
     title: 'Simple Gear Calculator',
