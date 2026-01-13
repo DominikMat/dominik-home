@@ -2,7 +2,7 @@ import { ReactNode, useState, useEffect } from 'react';
 import { ProjectData } from './components/ProjectData';
 import './Navigation.css'; 
 import ImageGallery from './components/ImageGallery';
-import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
+import { Routes, Route, Link, useLocation, useNavigate, Navigate } from 'react-router-dom';
 
 interface ProjectLive {
     title: string;
@@ -47,8 +47,8 @@ const Navigation: React.FC = () => {
       <div className="terminal-structure">
           <div className="top-line">
             {/* Show back button if we aren't on the home page */}
-            { location.pathname !== "/" && (
-                <button className="top-back-arrow" onClick={() => navigate('/')}>
+            { location.pathname !== "/dominik-home" && (
+                <button className="top-back-arrow" onClick={() => navigate('/dominik-home')}>
                   &lt;---
                 </button>
             )}
@@ -64,8 +64,11 @@ const Navigation: React.FC = () => {
         
         <Routes>
 
+            {/* EMPTY PAGE REDIRECT */}
+            <Route path="/" element={<Navigate to="/dominik-home" replace />} />
+
             {/* DEFAUTL SECTION */}
-            <Route path="/" element={
+            <Route path="/dominik-home" element={
                 <div className="links-wrapper">
                     <Link to="/about">about</Link>
                     <Link to="/projects">projects</Link>
