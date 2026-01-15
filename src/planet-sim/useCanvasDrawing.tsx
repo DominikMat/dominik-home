@@ -18,7 +18,8 @@ export const useCanvasDrawing = (
     gasketArcs: SurfaceArc[],
     planetData: CircleData,
     clickCircle: RefObject<CircleData>,
-    sliceHoles: CircleData[]
+    sliceHoles: CircleData[],
+    sphEnabled: RefObject<boolean>
 ) => {
 
     // 5. RYSOWANIE NA CANVAS (Gasket + SPH)
@@ -57,13 +58,15 @@ export const useCanvasDrawing = (
         
         ctx.restore();
 
-        // --- Rysowanie Cząstek SPH ---
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.8)'; // Ciemny, półprzezroczysty kolor
-        particlesRef.current.forEach(p => {
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, settings.DROPLET_RADIUS, 0, 2 * Math.PI);
-            ctx.fill();
-        });
+        if (sphEnabled.current) {
+            // --- Rysowanie Cząstek SPH ---
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.8)'; // Ciemny, półprzezroczysty kolor
+            particlesRef.current.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, settings.DROPLET_RADIUS, 0, 2 * Math.PI);
+                ctx.fill();
+            });
+        }
 
         // --- Draw Collision Surface ---
         // ctx.strokeStyle = '#000000';

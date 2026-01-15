@@ -30,6 +30,7 @@ export interface GasketProps {
     positionX: string; 
     positionY: string; 
     size: number;      
+    sphEnabled: RefObject<boolean>;
 }
 
 export type MouseData = {

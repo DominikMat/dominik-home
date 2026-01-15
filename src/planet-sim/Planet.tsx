@@ -32,7 +32,7 @@ function rotatePointAroundCircle (x:number, y:number, rt:number, centreCircle:Ci
     return { x:rotatedX + centreCircle.x, y:rotatedY + centreCircle.y };
 };
 
-const Planet: React.FC<GasketProps> = ({ positionX, positionY, size }) => {
+const Planet: React.FC<GasketProps> = ({ positionX, positionY, size, sphEnabled }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const animationRef = useRef<number>(0);
     const [sliceHoles, setSliceHoles] = useState<CircleData[]>([]);
@@ -91,7 +91,7 @@ const Planet: React.FC<GasketProps> = ({ positionX, positionY, size }) => {
     const { particlesRef, sphLoop } = useSphSimulation({ size, planetData, collisionSurface:gasketArcs });
 
     // Użycie Hooka do Rysowania
-    const { drawAll:canvasRender } = useCanvasDrawing(size, gasketArcs, planetData, clickCircle, sliceHoles);
+    const { drawAll:canvasRender } = useCanvasDrawing(size, gasketArcs, planetData, clickCircle, sliceHoles, sphEnabled);
 
 
     // --- 6. GŁÓWNA PĘTLA ANIMACJI (Planeta + SPH) ---
@@ -119,7 +119,8 @@ const Planet: React.FC<GasketProps> = ({ positionX, positionY, size }) => {
             px: mousePosRef.current.x, py: mousePosRef.current.y,
             vx: mouseVelRef.current.x, vy: mouseVelRef.current.y
         }
-        sphLoop( currentMouseData );        
+
+        if (sphEnabled.current) sphLoop( currentMouseData );        
 
     }, [sphLoop, particlesRef, planetData, gasketArcs, isMousePressed, clickCircle, mousePosRef, mouseVelRef]);
 
