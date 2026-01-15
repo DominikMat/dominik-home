@@ -5,7 +5,7 @@ import { MouseData, SphSimulationProps, ParticleState} from './types';
 const TWO_PI = 2*Math.PI;
 const norm = (a:number) => (a % TWO_PI + TWO_PI) % TWO_PI;
 
-export const useSphSimulation = ({ size, planetData, collisionSurface }: SphSimulationProps) => {
+export const useSphSimulation = ({ size, planetData, collisionSurface, particleNum }: SphSimulationProps) => {
     const particlesRef = useRef<ParticleState[]>([]);
 
     const W = size;
@@ -15,8 +15,8 @@ export const useSphSimulation = ({ size, planetData, collisionSurface }: SphSimu
     const computeState = useCallback((currentParticles: ParticleState[]): ParticleState[] => {
         const newParticles = currentParticles.map(p1 => ({ ...p1, density: 0, pressure: 0 }));
 
-        for (let p1 = 0; p1 < settings.PARTICLE_NUM; p1++) {
-            for (let p2 = 0; p2 < settings.PARTICLE_NUM; p2++) {
+        for (let p1 = 0; p1 < particleNum; p1++) {
+            for (let p2 = 0; p2 < particleNum; p2++) {
                 const dx = newParticles[p2].x - newParticles[p1].x;
                 const dy = newParticles[p2].y - newParticles[p1].y;
                 const distSq = dx*dx + dy*dy;
@@ -35,12 +35,12 @@ export const useSphSimulation = ({ size, planetData, collisionSurface }: SphSimu
 
         const newParticles = currentParticles.map(p => ({ ...p, fx: 0, fy: 0 }));
 
-        for (let p1 = 0; p1 < settings.PARTICLE_NUM; p1++) {
+        for (let p1 = 0; p1 < particleNum; p1++) {
             // ... (logika obliczania sił: lepkość i ciśnienie) ...
             let viscosityX = 0, viscosityY = 0, pressureX = 0, pressureY = 0;
             let surfaceDragX = 0; let surfaceDragY = 0;
 
-            for (let p2 = 0; p2 < settings.PARTICLE_NUM; p2++) {
+            for (let p2 = 0; p2 < particleNum; p2++) {
                 if (p1 === p2) continue;
 
                 const dirX = (newParticles[p2].x - newParticles[p1].x);
@@ -194,7 +194,7 @@ export const useSphSimulation = ({ size, planetData, collisionSurface }: SphSimu
 
         const spawnRadius = planetData.r + settings.SUPPORT_RAD * 2; 
 
-        for (let i = 0; i < settings.PARTICLE_NUM; i++) {
+        for (let i = 0; i < particleNum; i++) {
             const angle = Math.random() * 2 * Math.PI;
             const distance = (planetData.r+settings.SUPPORT_RAD) + Math.random() * (spawnRadius - planetData.r);
 

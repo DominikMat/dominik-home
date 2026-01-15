@@ -7,9 +7,9 @@ import { Hash } from 'crypto';
 import { transform } from 'typescript';
 
 function App() {
-  const [sphEnabled] = useState<boolean>(() => {
+  const [sphParticleNumber] = useState<number>(() => {
     // 1. Safety check for SSR (Server Side Rendering) or weird environments
-    if (typeof navigator === 'undefined') return false; 
+    if (typeof navigator === 'undefined') return 0; 
 
     // 2. User Agent Check
     const ua = navigator.userAgent || '';
@@ -27,10 +27,13 @@ function App() {
     const slowNetwork = effectiveType && /(2g|3g)/.test(effectiveType);
 
     // 4. The Decision Logic
-    const canEnable = !isMobile && (!hw || hw >= 4) && (!mem || mem >= 4) && !saveData && !slowNetwork;
-    console.log(`SPH Init: Mobile=${isMobile}, HW=${hw}, Mem=${mem}, Enabled=${canEnable}`);
+    let particleNum = 512
+    if (isMobile || saveData || slowNetwork) particleNum = 0
+    else if (hw < 2 || mem < 2) particleNum = 128
+
+    console.log(`SPH Init: Mobile=${isMobile}, HW=${hw}, Mem=${mem}, Enabled=${particleNum!=0},with particle num=${particleNum}`);
     
-    return canEnable;
+    return particleNum;
   });
 
   const [simVersion, setSimVersion] = useState(0);
@@ -54,7 +57,7 @@ function App() {
         size={planetSimulationSettings.CANVAS_SIDE_LEN}
         positionX="25vw"
         positionY="0vh"
-        sphEnabled={sphEnabled}
+        particleNum={sphParticleNumber}
         onInteraction={handleInteraction}
       />
 

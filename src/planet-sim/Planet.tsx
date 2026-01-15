@@ -32,7 +32,7 @@ function rotatePointAroundCircle (x:number, y:number, rt:number, centreCircle:Ci
     return { x:rotatedX + centreCircle.x, y:rotatedY + centreCircle.y };
 };
 
-const Planet: React.FC<GasketProps> = ({ positionX, positionY, size, sphEnabled, onInteraction }) => {
+const Planet: React.FC<GasketProps> = ({ positionX, positionY, size, particleNum, onInteraction }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const animationRef = useRef<number>(0);
     const [sliceHoles, setSliceHoles] = useState<CircleData[]>([]);
@@ -41,6 +41,8 @@ const Planet: React.FC<GasketProps> = ({ positionX, positionY, size, sphEnabled,
     const lastTimeRef = useRef(0);
     const physicsAccRef = useRef(0);
     const renderAccRef = useRef(0);
+
+    const sphEnabled = particleNum != 0
 
     // Użycie Hooka do Konfiguracji Fraktala
     const { gasketArcs, planetData } = useGasketSetup(size);
@@ -85,7 +87,7 @@ const Planet: React.FC<GasketProps> = ({ positionX, positionY, size, sphEnabled,
     const { mousePosRef, mouseVelRef, clickCircle, isMousePressed } = useMouseHandler(canvasRef, true, onSliceArcs); 
 
     // Użycie Hooka do Symulacji SPH
-    const { particlesRef, sphLoop } = useSphSimulation({ size, planetData, collisionSurface:gasketArcs });
+    const { particlesRef, sphLoop } = useSphSimulation({ size, planetData, collisionSurface:gasketArcs, particleNum });
 
     // Użycie Hooka do Rysowania
     const { drawAll:canvasRender } = useCanvasDrawing(size, gasketArcs, planetData, clickCircle, sliceHoles, sphEnabled);

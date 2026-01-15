@@ -24,13 +24,14 @@ export type SphSimulationProps = {
     size: number;
     planetData: CircleData;
     collisionSurface: SurfaceArc[];
+    particleNum: number;
 };
 
 export interface GasketProps {
     positionX: string; 
     positionY: string; 
     size: number;      
-    sphEnabled: boolean;
+    particleNum: number;
     onInteraction?: () => void;
 }
 
