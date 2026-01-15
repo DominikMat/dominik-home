@@ -30,7 +30,8 @@ export interface GasketProps {
     positionX: string; 
     positionY: string; 
     size: number;      
-    sphEnabled: RefObject<boolean>;
+    sphEnabled: boolean;
+    onInteraction?: () => void;
 }
 
 export type MouseData = {

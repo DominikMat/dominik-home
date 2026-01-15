@@ -32,7 +32,7 @@ function rotatePointAroundCircle (x:number, y:number, rt:number, centreCircle:Ci
     return { x:rotatedX + centreCircle.x, y:rotatedY + centreCircle.y };
 };
 
-const Planet: React.FC<GasketProps> = ({ positionX, positionY, size, sphEnabled }) => {
+const Planet: React.FC<GasketProps> = ({ positionX, positionY, size, sphEnabled, onInteraction }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const animationRef = useRef<number>(0);
     const [sliceHoles, setSliceHoles] = useState<CircleData[]>([]);
@@ -49,10 +49,7 @@ const Planet: React.FC<GasketProps> = ({ positionX, positionY, size, sphEnabled 
     const onSliceArcs = useCallback((slicer: CircleData) => {
         if (slicer.r <= 0 || !canvasRef.current) return;
 
-        // let rotatedSlicerPos = rotatePointAroundCircle (slicer.x, slicer.y, -rotationRef.current, planetData);
-        // //let rotatedSlicerPos = { x: slicer.x, y:slicer.y}
-        // const rotatedSlicer: CircleData = { x: rotatedSlicerPos.x, y: rotatedSlicerPos.y, r: slicer.r };
-        // setSliceHoles(prevHoles => [...prevHoles, rotatedSlicer]);
+        if (onInteraction) onInteraction();
 
         let intersectedArcs: IntersectedArc[] = [];
         let modifiedSurface = false;
@@ -120,7 +117,7 @@ const Planet: React.FC<GasketProps> = ({ positionX, positionY, size, sphEnabled 
             vx: mouseVelRef.current.x, vy: mouseVelRef.current.y
         }
 
-        if (sphEnabled.current) sphLoop( currentMouseData );        
+        if (sphEnabled) sphLoop( currentMouseData );        
 
     }, [sphLoop, particlesRef, planetData, gasketArcs, isMousePressed, clickCircle, mousePosRef, mouseVelRef]);
 

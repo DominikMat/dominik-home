@@ -19,7 +19,7 @@ export const useCanvasDrawing = (
     planetData: CircleData,
     clickCircle: RefObject<CircleData>,
     sliceHoles: CircleData[],
-    sphEnabled: RefObject<boolean>
+    sphEnabled: boolean
 ) => {
 
     // 5. RYSOWANIE NA CANVAS (Gasket + SPH)
@@ -58,7 +58,7 @@ export const useCanvasDrawing = (
         
         ctx.restore();
 
-        if (sphEnabled.current) {
+        if (sphEnabled) {
             // --- Rysowanie Cząstek SPH ---
             ctx.fillStyle = 'rgba(0, 0, 0, 0.8)'; // Ciemny, półprzezroczysty kolor
             particlesRef.current.forEach(p => {
