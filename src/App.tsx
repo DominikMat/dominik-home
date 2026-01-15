@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import Navigation from './Navigation';
 import PlanetSimulation from './planet-sim/Planet';
 import * as planetSimulationSettings from './planet-sim/SimulationSettings';
+import { Hash } from 'crypto';
 
 function App() {
   let sphEnabled = useRef<boolean>(false);
@@ -34,9 +35,9 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Navigation />
-      </BrowserRouter>
+      <HashRouter>
+        <Navigation/>
+      </HashRouter>
 
       <PlanetSimulation
         size={planetSimulationSettings.CANVAS_SIDE_LEN}

@@ -27,7 +27,7 @@ const Navigation: React.FC = () => {
   
     useEffect(() => {
         switch (location.pathname) {
-            case '/home': 
+            case '/': 
                 setLineHeight(300); break;
             case '/about': 
                 setLineHeight(230); break;
@@ -47,12 +47,12 @@ const Navigation: React.FC = () => {
       <div className="terminal-structure">
           <div className="top-line">
             {/* Show back button if we aren't on the home page */}
-            { (location.pathname !== "/home" && location.pathname !== "/home/") && (
-                <button className="top-back-arrow" onClick={() => navigate('/home')}>
+            { (location.pathname !== "/") && (
+                <button className="top-back-arrow" onClick={() => navigate('/')}>
                   &lt;---
                 </button>
-            )}
-          </div>
+                )}
+            </div>
           <h1 className="name">Dominik Mat</h1>
 
         <div className="menu-container">
@@ -65,10 +65,10 @@ const Navigation: React.FC = () => {
         <Routes>
 
             {/* EMPTY PAGE REDIRECT */}
-            <Route path="/" element={<Navigate to="/home" replace />} />
+            {/* <Route path="/" element={<Navigate to="/" replace />} /> */}
 
             {/* DEFAUTL SECTION */}
-            <Route path="/home" element={
+            <Route path="/" element={
                 <div className="links-wrapper">
                     <Link to="/about">about</Link>
                     <Link to="/projects">projects</Link>
