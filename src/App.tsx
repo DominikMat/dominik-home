@@ -66,7 +66,7 @@ function App() {
         left: `calc(25vw + ${planetSimulationSettings.CANVAS_SIDE_LEN / 2}px)`,
         top: `calc(${planetSimulationSettings.CANVAS_SIDE_LEN * 0.42}px)`,
         transform: 'translate(-50%, -50%)',
-        zIndex: 1000,
+        zIndex: 101,
         textAlign:'center',
       }}> 
         {/* CONDITIONAL RENDERING */}
