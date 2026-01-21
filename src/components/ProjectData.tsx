@@ -29,6 +29,31 @@ export interface ProjectInfo {
 }
 
 export const ProjectData: ProjectInfo[] = [
+    // simple gear calculator
+    {
+    title: 'Telly vision',
+    tag: 'Website / Game',
+    startDate: '2026',
+    endDate: '2026',
+    description: 'a raytracing puzzle game about always seeing the telly',
+    images: [
+        { path: '/dominik-home/images/telly/furniture.png', aspect: 9/11  },
+        { path: '/dominik-home/images/telly/plot.png', aspect: 9/10  },
+    ],
+    details: `
+        A online puzzle game about using mirrors and portals to never lose 
+        sight of the tv during the world series. Simple 2D raytracing with line 
+        collisions, cool visibility effects.
+        Made in HTML+TypeScript.
+    `,
+    stats: [
+    ],
+    links: [
+        {title: "Play online here", url:'/dominik-home/telly-vision-cpy/index.html', filePath:''},
+        {title: "Github repo", url:'https://github.com/DominikMat/telly-vision', filePath:''},
+    ],
+        galleryAspectMult: 12,
+    },
     // drifty roads
     {
     title: 'drifty roads',
@@ -405,6 +430,7 @@ export const ProjectData: ProjectInfo[] = [
         {label: "Time spent", value: "~1 year on and off"}
     ],
     links: [
+        {title: "Live simulation (HTML)", url: '/dominik-home/sph fluid simulation/index.html', filePath:''},
         {title: "Fluid Engine Videos (YT Playlist)", url:'https://www.youtube.com/playlist?list=PLJX6VUSvLT5RnLE8cEcDfddoYloI3ZBgT', filePath:''},
         {title: "SPH Fluid Videos (YT Playlist)", url:'https://www.youtube.com/playlist?list=PLJX6VUSvLT5RpJeCM139PUpdwGMB6E-0r', filePath:''},
         {title: "SPH Fluid Simulation - HTML", url:'https://drive.google.com/file/d/1X7boNwWbTHN7smb6Bz7bNeCsBvWzxY0O/view?usp=sharing', filePath:''},
@@ -433,6 +459,7 @@ export const ProjectData: ProjectInfo[] = [
     stats: [
     ],
     links: [
+        {title: "Live Simulation (HTML)", url:'/dominik-home/softbody simulation/index.html', filePath:''},
         {title: "Softbody Simulation SFML - PC", url:'https://drive.google.com/file/d/1JsPKmjE6ILm1fNppHuHoclQEhjUEIPkf/view?usp=sharing', filePath:''},
         {title: "Softbody Simulation HTML - PC", url:'https://drive.google.com/file/d/1VMwr1ccoLVnojJbPXA4FvKxlqpe52lCn/view?usp=sharing', filePath:''},
         {title: "Abstract Softness - Android", url:'https://drive.google.com/file/d/1P7MzJqBDNhVHBO0WR_cFF6cDa7FZYd-s/view?usp=sharing', filePath:''},
@@ -541,6 +568,7 @@ export const ProjectData: ProjectInfo[] = [
         `,
         stats: [],
         links: [
+            {title: "Live simulation (HTML)", url:'/dominik-home/gravity simulation/index.html', filePath:''},
             {title: "Solar System Simulation - PC", url:'https://drive.google.com/file/d/1ZdceGFTvNG5vzDfEH3bzUkn3TIHVSudB/view?usp=sharing', filePath:''},
             {title: "Three body - Android", url:'https://drive.google.com/file/d/1q-ejeIB6ihqUH9df4pHX36R8dH87KhoH/view?usp=sharing', filePath:''},
             {title: "Gravity Simulation - HTML", url:'https://drive.google.com/file/d/1YDdSvx3ummSVUOzJJsfr70oLFfTmBlYP/view?usp=sharing', filePath:''}

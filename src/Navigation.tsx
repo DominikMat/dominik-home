@@ -7,16 +7,17 @@ import { Routes, Route, Link, useLocation, useNavigate, Navigate } from 'react-r
 interface ProjectLive {
     title: string;
     link: string;
-    htmlSite: boolean;
+    lesserSite: boolean;
 }
 const ProjectsLive: ProjectLive[] = [
-    { title: "Simple Gear Simulation", link: 'https://dominikmat.github.io/simple-gear-calculator/', htmlSite:false},
-    { title: "Old project webstie", link: 'https://dominikmat.github.io/portfolio_website/', htmlSite:false},
-    { title: "Arc collisions HTML", link: '/dominik-home/circle-collisions/index.html', htmlSite:true},
-    { title: "Softbody Simulation HTML", link: '/dominik-home/softbody simulation/index.html', htmlSite:true},
-    { title: "Gravity Simulation HTML", link: '/dominik-home/gravity simulation/index.html', htmlSite:true},
-    { title: "SPH Simulation HTML", link: '/dominik-home/sph fluid simulation/index.html', htmlSite:true},
-    { title: "stronka zosi HTML", link: '/dominik-home/stronka zosi/stronkaZosi.html', htmlSite:true},
+    { title: "Telly vision", link: '/dominik-home/telly-vision-cpy/index.html', lesserSite:false},
+    { title: "Simple Gear Calculator", link: 'https://dominikmat.github.io/simple-gear-calculator/', lesserSite:false},
+    { title: "Old project webstie", link: 'https://dominikmat.github.io/portfolio_website/', lesserSite:false},
+    { title: "Arc collisions HTML", link: '/dominik-home/circle-collisions/index.html', lesserSite:true},
+    { title: "Softbody Simulation HTML", link: '/dominik-home/softbody simulation/index.html', lesserSite:true},
+    { title: "Gravity Simulation HTML", link: '/dominik-home/gravity simulation/index.html', lesserSite:true},
+    { title: "SPH Simulation HTML", link: '/dominik-home/sph fluid simulation/index.html', lesserSite:true},
+    { title: "stronka zosi HTML", link: '/dominik-home/stronka zosi/stronkaZosi.html', lesserSite:true},
 ]
 
 const Navigation: React.FC = () => {
@@ -30,7 +31,7 @@ const Navigation: React.FC = () => {
             case '/': 
                 setLineHeight(300); break;
             case '/about': 
-                setLineHeight(230); break;
+                setLineHeight(260); break;
             case '/live': 
                 setLineHeight(ProjectsLive.length * 75); break;
             case '/projects': 
@@ -82,8 +83,9 @@ const Navigation: React.FC = () => {
                 <div className="about-textbox">
                     <p> hello internet! </p>
                     <p> I'm Dominik, I like </p>
-                    <p> making simulations & </p>
-                    <p> graphics programming :) </p>
+                    <p> making simulations, small games, </p>
+                    <p> and graphics programming :) </p>
+                    <p> I'm a CS student from Poland </p>
                 </div>
             } />    
             
@@ -96,8 +98,8 @@ const Navigation: React.FC = () => {
                             href={project.link} 
                             style={{
                                 animationDelay: (0.225 * i) + 's', 
-                                color: project.htmlSite ? '#4e4e4eff' : 'black',
-                                fontSize: project.htmlSite ? '4ch' : '6ch'
+                                color: project.lesserSite ? '#4e4e4eff' : 'black',
+                                fontSize: project.lesserSite ? '4ch' : '6ch'
                             }}
                         > 
                             {project.title} 

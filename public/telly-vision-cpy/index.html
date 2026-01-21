@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF - 8">
+    <meta name="viewport" content="width=device - width, initial - scale=1.0">
+    <title>Telly-vision</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+ 
+<body>
+    <!-- HEADER -->
+    <header> <b> Telly-vision </b> by Dominik Mat </header>
+
+    <!-- MAIN CANVAS AND CODE -->
+    <canvas id="canvas"> </canvas>
+    <script type="module" src="./dist/main.js"></script>
+
+    <!-- PLOT IMAGE -->
+    <img id="plotImage" class='centralDisplay' src="./images/plot.png" alt='plot image'>
+
+    <!-- LEVEL SELECTION (UI ABOVE) -->
+    <div id="levelWindow"> 
+        <button id="lvlSelectArrowPrev" class="lvlSelectArrow"> &larr; </button>
+        <p id="levelDisplay"> <b> Time: 5:00 </b> <span class="lesserText"> (Level 1) </span> </p>
+        <button id="lvlSelectArrowNext" class="lvlSelectArrow"> &rarr; </button>
+    </div>
+    <p id="userMessage"> default message </p>
+    
+    <!-- HOOVERING AND SCORE (UI BELOW) -->
+    <button id="startHooverButton"> Start hoovering </button>
+    <p id="scoreDisplay"> 78% </p>
+
+</body>
+ 
