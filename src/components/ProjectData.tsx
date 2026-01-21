@@ -59,6 +59,37 @@ export const ProjectData: ProjectInfo[] = [
     ],
         galleryAspectMult: 10,
     },
+    // layer trains
+    {
+    title: 'Layer Trains',
+    tag: 'Computer Program',
+    startDate: '2025/6',
+    endDate: '2025/6',
+    description: 'a program (game?) to draw realisticly sloped roads on real life terrain',
+    images: [
+        { path: '/dominik-home/images/trains/title.png', aspect: 9/7 },
+        { path: '/dominik-home/images/trains/game2.png', aspect: 135/80 },
+        { path: '/dominik-home/images/trains/game.png', aspect: 135/80 },
+        { path: '/dominik-home/images/trains/editor.png', aspect: 135/80 },
+        { path: '/dominik-home/images/trains/finaly_a_prototype.png', aspect: 135/80 },
+    ],
+    details: `
+        CURRENTLY UNFINISHED.
+        A idea for playing around with OpenGL (GLFW), turns out doing anything interesting
+        from such low-level software involves basically writing your own game engine, so this project 
+        took around 1.5 months of active developement - the engine part supports custom ui with anchoring, text,
+        buttons, the 3d aspect gives any game world object full position, rotation, scale control, rendering is handled automatically
+        in either projection (otho, perspective). The Game part renders a 3D terrain map (from real-world data) and the user
+        can draw custom lines with modes - straight line, keep constant slope, or auto. The paths can be converted into roads
+        which locally flattens and colours the terrain mesh (into a road pattern).
+    `,
+    stats: [
+    ],
+    links: [
+        {title: "Github repo", url:'https://github.com/DominikMat/layer-trains', filePath:''},
+    ],
+        galleryAspectMult: 20,
+    },
     // simple gear calculator
     {
     title: 'Simple Gear Calculator',
