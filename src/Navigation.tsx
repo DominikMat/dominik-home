@@ -10,6 +10,7 @@ interface ProjectLive {
     lesserSite: boolean;
 }
 const ProjectsLive: ProjectLive[] = [
+    { title: "Telly UnAmericanizer", link: 'https://dominikmat.github.io/telly-unamericanizer/', lesserSite:false},
     { title: "Telly vision", link: '/dominik-home/telly-vision-cpy/index.html', lesserSite:false},
     { title: "Simple Gear Calculator", link: 'https://dominikmat.github.io/simple-gear-calculator/', lesserSite:false},
     { title: "Old project webstie", link: 'https://dominikmat.github.io/portfolio_website/', lesserSite:false},
